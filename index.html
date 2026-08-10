@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>Invitație Cununie Civilă - Amanda & Alexandru</title>
+    
+    <!-- Google Fonts originale Vainvit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Luxurious+Script&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --gold: #bfa054;
+            --gold-light: #e6d39a;
+            --rose-burgundy: #b87b84;
+            --text-dark: #333333;
+            --bg-paper: #ffffff;
+            --waze-blue: #33ccff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #f7f5f0;
+            color: var(--text-dark);
+            font-family: 'Crimson Text', serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 30px 15px;
+        }
+
+        /* Cardul principal */
+        .invitation-card {
+            background-color: var(--bg-paper);
+            max-width: 560px;
+            width: 100%;
+            padding: 35px 25px;
+            text-align: center;
+            box-shadow: 0 12px 35px rgba(0,0,0,0.09);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* MAGNOLII ÎN COLȚURI */
+        .magnolia-corner {
+            position: absolute;
+            width: 220px;
+            height: 220px;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .magnolia-top-left {
+            top: -10px;
+            left: -10px;
+        }
+
+        .magnolia-top-right {
+            top: -10px;
+            right: -10px;
+            transform: scaleX(-1);
+        }
+
+        .magnolia-bottom-left {
+            bottom: -10px;
+            left: -10px;
+            transform: scaleY(-1);
+        }
+
+        .magnolia-bottom-right {
+            bottom: -10px;
+            right: -10px;
+            transform: scale(-1, -1);
+        }
+
+        /* Bordura dubla aurie */
+        .outer-border {
+            border: 1px solid var(--gold-light);
+            padding: 10px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .inner-border {
+            border: 1px solid var(--gold);
+            padding: 35px 20px;
+            position: relative;
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        /* Inelul Auriu cu Diamant */
+        .ring-icon-container {
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+        .ring-svg {
+            width: 60px;
+            height: 60px;
+            filter: drop-shadow(0px 2px 4px rgba(191, 160, 84, 0.3));
+        }
+
+        .header-sub {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--gold);
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .header-sub-pt {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.68rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--rose-burgundy);
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        /* Nume Miri (Luxurious Script) */
+        .couple-names {
+            font-family: 'Luxurious Script', cursive;
+            font-size: 4.8rem;
+            color: var(--rose-burgundy);
+            line-height: 1.1;
+            margin: 10px 0 20px 0;
+            font-weight: normal;
+        }
+
+        .intro-message {
+            font-style: italic;
+            font-size: 1.1rem;
+            line-height: 1.4;
+            color: #444;
+            margin-bottom: 8px;
+            padding: 0 10px;
+        }
+
+        .intro-message-pt {
+            font-style: italic;
+            font-size: 1.05rem;
+            line-height: 1.4;
+            color: #777;
+            margin-bottom: 25px;
+            padding: 0 10px;
+        }
+
+        /* Data */
+        .date-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin: 25px 0 10px 0;
+        }
+
+        .date-side {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--gold);
+            border-top: 1px solid var(--gold);
+            border-bottom: 1px solid var(--gold);
+            padding: 6px 8px;
+            min-width: 120px;
+            line-height: 1.3;
+        }
+
+        .date-side span {
+            display: block;
+            font-size: 0.65rem;
+            color: var(--rose-burgundy);
+            font-weight: 500;
+        }
+
+        .date-day {
+            font-size: 3.5rem;
+            font-family: 'Crimson Text', serif;
+            color: var(--rose-burgundy);
+            font-weight: 600;
+            line-height: 1;
+        }
+
+        /* Countdown Timer */
+        .countdown-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--gold);
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .countdown-grid {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .countdown-box {
+            background: rgba(247, 245, 240, 0.9);
+            border: 1px solid var(--gold-light);
+            border-radius: 4px;
+            padding: 8px 10px;
+            min-width: 65px;
+        }
+
+        .countdown-value {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--rose-burgundy);
+            line-height: 1;
+        }
+
+        .countdown-label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.58rem;
+            text-transform: uppercase;
+            color: #777;
+            margin-top: 4px;
+            letter-spacing: 0.5px;
+        }
+
+        /* Locații */
+        .locations-container {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin: 25px 0;
+        }
+
+        .location-card {
+            border: 1px solid rgba(191, 160, 84, 0.4);
+            padding: 18px 14px;
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 4px;
+            position: relative;
+        }
+
+        .location-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--gold);
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+
+        .location-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 4px;
+        }
+
+        .location-address {
+            font-size: 0.92rem;
+            color: #666;
+            line-height: 1.3;
+            margin-bottom: 8px;
+        }
+
+        .location-time {
+            font-size: 0.98rem;
+            color: var(--rose-burgundy);
+            font-weight: 600;
+            font-style: italic;
+            margin-bottom: 12px;
+        }
+
+        /* WAZE BUTTON */
+        .waze-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            background-color: #222222;
+            color: #ffffff;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 8px 14px;
+            border-radius: 20px;
+            letter-spacing: 1px;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+        }
+
+        .waze-btn:hover {
+            background-color: #33ccff;
+            color: #000000;
+        }
+
+        .waze-icon {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+        }
+
+        .divider {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0,0,0,0), var(--gold), rgba(0,0,0,0));
+            margin: 25px 0 20px 0;
+        }
+
+        /* Buton WhatsApp RSVP */
+        .btn-confirm {
+            display: inline-block;
+            background-color: var(--gold);
+            color: #ffffff;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            padding: 14px 24px;
+            font-weight: 600;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(191, 160, 84, 0.3);
+        }
+
+        .btn-confirm:hover {
+            background-color: #a38541;
+        }
+
+        .rsvp-deadline {
+            font-size: 0.9rem;
+            font-style: italic;
+            color: #666;
+            margin-top: 10px;
+        }
+
+        .rsvp-deadline-pt {
+            font-size: 0.85rem;
+            font-style: italic;
+            color: #888;
+            margin-top: 2px;
+        }
+
+        @media (max-width: 480px) {
+            .couple-names { font-size: 3.8rem; }
+            .invitation-card { padding: 20px 10px; }
+            .inner-border { padding: 25px 10px; }
+            .magnolia-corner { width: 140px; height: 140px; }
+            .date-side { min-width: 95px; font-size: 0.65rem; }
+            .date-side span { font-size: 0.58rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="invitation-card">
+
+        <!-- MAGNOLII ÎN COLȚURI -->
+        <svg class="magnolia-corner magnolia-top-left" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g opacity="0.9">
+                <path d="M10,80 C30,40 80,30 110,10 C90,50 60,80 10,80 Z" fill="#7a8b6e" opacity="0.75"/>
+                <path d="M80,10 C120,30 130,80 140,120 C100,100 70,60 80,10 Z" fill="#bfa054" opacity="0.6"/>
+                <path d="M0,0 C50,20 80,70 70,120 C30,100 10,50 0,0 Z" fill="#e2b4bb" />
+                <path d="M10,10 C60,40 70,90 50,130 C20,100 10,60 10,10 Z" fill="#d49ba5" />
+                <path d="M25,20 C70,50 80,100 40,110 C20,90 15,50 25,20 Z" fill="#f5dce0" />
+                <path d="M5,5 C30,30 40,60 20,80 C5,60 0,30 5,5 Z" fill="#c47d89" />
+                <path d="M0,0 Q60,60 120,80" stroke="#bfa054" stroke-width="2"/>
+                <circle cx="120" cy="80" r="4" fill="#bfa054"/>
+                <circle cx="95" cy="50" r="3" fill="#bfa054"/>
+            </g>
+        </svg>
+
+        <svg class="magnolia-corner magnolia-top-right" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g opacity="0.9">
+                <path d="M10,80 C30,40 80,30 110,10 C90,50 60,80 10,80 Z" fill="#7a8b6e" opacity="0.75"/>
+                <path d="M80,10 C120,30 130,80 140,120 C100,100 70,60 80,10 Z" fill="#bfa054" opacity="0.6"/>
+                <path d="M0,0 C50,20 80,70 70,120 C30,100 10,50 0,0 Z" fill="#e2b4bb" />
+                <path d="M10,10 C60,40 70,90 50,130 C20,100 10,60 10,10 Z" fill="#d49ba5" />
+                <path d="M25,20 C70,50 80,100 40,110 C20,90 15,50 25,20 Z" fill="#f5dce0" />
+                <path d="M5,5 C30,30 40,60 20,80 C5,60 0,30 5,5 Z" fill="#c47d89" />
+                <path d="M0,0 Q60,60 120,80" stroke="#bfa054" stroke-width="2"/>
+                <circle cx="120" cy="80" r="4" fill="#bfa054"/>
+            </g>
+        </svg>
+
+        <svg class="magnolia-corner magnolia-bottom-left" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g opacity="0.9">
+                <path d="M10,80 C30,40 80,30 110,10 C90,50 60,80 10,80 Z" fill="#7a8b6e" opacity="0.75"/>
+                <path d="M0,0 C50,20 80,70 70,120 C30,100 10,50 0,0 Z" fill="#e2b4bb" />
+                <path d="M10,10 C60,40 70,90 50,130 C20,100 10,60 10,10 Z" fill="#d49ba5" />
+                <path d="M25,20 C70,50 80,100 40,110 C20,90 15,50 25,20 Z" fill="#f5dce0" />
+                <path d="M0,0 Q60,60 120,80" stroke="#bfa054" stroke-width="2"/>
+            </g>
+        </svg>
+
+        <svg class="magnolia-corner magnolia-bottom-right" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g opacity="0.9">
+                <path d="M10,80 C30,40 80,30 110,10 C90,50 60,80 10,80 Z" fill="#7a8b6e" opacity="0.75"/>
+                <path d="M0,0 C50,20 80,70 70,120 C30,100 10,50 0,0 Z" fill="#e2b4bb" />
+                <path d="M10,10 C60,40 70,90 50,130 C20,100 10,60 10,10 Z" fill="#d49ba5" />
+                <path d="M25,20 C70,50 80,100 40,110 C20,90 15,50 25,20 Z" fill="#f5dce0" />
+                <path d="M0,0 Q60,60 120,80" stroke="#bfa054" stroke-width="2"/>
+            </g>
+        </svg>
+
+        <div class="outer-border">
+            <div class="inner-border">
+                
+                <!-- Inel Auriu -->
+                <div class="ring-icon-container">
+                    <svg class="ring-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="32" cy="38" r="18" stroke="#bfa054" stroke-width="3" fill="none"/>
+                        <circle cx="32" cy="38" r="14" stroke="#e6d39a" stroke-width="1" fill="none"/>
+                        <path d="M32 8 L38 16 L32 22 L26 16 Z" fill="#e6d39a" stroke="#bfa054" stroke-width="1.5"/>
+                        <path d="M32 8 L32 22" stroke="#ffffff" stroke-width="1"/>
+                        <path d="M20 12 L24 14" stroke="#bfa054" stroke-width="1.5" stroke-linecap="round"/>
+                        <path d="M44 12 L40 14" stroke="#bfa054" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                </div>
+
+                <div class="header-sub">SĂRBĂTORIM DRAGOSTEA</div>
+                <div class="header-sub-pt">Celebrando o Amor</div>
+                
+                <!-- Nume Miri -->
+                <div class="couple-names">
+                    Amanda &amp; Alexandru
+                </div>
+                
+                <!-- Mesaj Bilingv -->
+                <p class="intro-message">
+                    Două inimi, o singură poveste! Vă așteptăm cu bucurie și emoție să ne fiți alături în momentul în care ne vom uni destinele.
+                </p>
+                <p class="intro-message-pt">
+                    Dois corações, uma só história! Esperamos por você com muita alegria e emoção para celebrar este momento em que uniremos nossos destinos.
+                </p>
+
+                <!-- Data (Bilingv) -->
+                <div class="date-container">
+                    <div class="date-side">
+                        MARȚI
+                        <span>Terça-feira</span>
+                    </div>
+                    <div class="date-day">25</div>
+                    <div class="date-side">
+                        AUGUST 2026
+                        <span>Agosto de 2026</span>
+                    </div>
+                </div>
+
+                <!-- COUNTDOWN TIMER -->
+                <div class="countdown-title">A MAI RĂMAS / FALTAM:</div>
+                <div class="countdown-grid">
+                    <div class="countdown-box">
+                        <div class="countdown-value" id="cd-days">00</div>
+                        <div class="countdown-label">Zile / Dias</div>
+                    </div>
+                    <div class="countdown-box">
+                        <div class="countdown-value" id="cd-hours">00</div>
+                        <div class="countdown-label">Ore / Horas</div>
+                    </div>
+                    <div class="countdown-box">
+                        <div class="countdown-value" id="cd-minutes">00</div>
+                        <div class="countdown-label">Min</div>
+                    </div>
+                    <div class="countdown-box">
+                        <div class="countdown-value" id="cd-seconds">00</div>
+                        <div class="countdown-label">Sec / Seg</div>
+                    </div>
+                </div>
+
+                <!-- Locații cu Siglă & Link Waze -->
+                <div class="locations-container">
+                    
+                    <!-- Locația 1: Cununia Civilă -->
+                    <div class="location-card">
+                        <div class="location-title">🏛️ CUNUNIA CIVILĂ / CASAMENTO CIVIL</div>
+                        <div class="location-name">Starea Civilă Popești-Leordeni</div>
+                        <div class="location-address">Str. 31A DN4 - Șos. Olteniței, Popești-Leordeni, Jud. Ilfov</div>
+                        <div class="location-time">Ora / Horário: 14:00</div>
+                        
+                        <a href="https://waze.com/ul?q=Starea%20Civila%20Popesti%20Leordeni&navigate=yes" class="waze-btn" target="_blank">
+                            <svg class="waze-icon" viewBox="0 0 24 24">
+                                <path d="M18.5,9.5 C18.5,8.12 17.38,7 16,7 C14.62,7 13.5,8.12 13.5,9.5 C13.5,10.88 14.62,12 16,12 C17.38,12 18.5,10.88 18.5,9.5 Z M8,7 C6.62,7 5.5,8.12 5.5,9.5 C5.5,10.88 6.62,12 8,12 C9.38,12 10.5,10.88 10.5,9.5 C10.5,8.12 9.38,7 8,7 Z M12,2 C6.48,2 2,6.48 2,12 C2,14.66 3.04,17.08 4.75,18.87 C5.09,19.23 5.5,20.5 5.5,21.5 C5.5,21.78 5.72,22 6,22 L8.5,22 C8.78,22 9,21.78 9,21.5 C9,20.95 9.45,20.5 10,20.5 L14,20.5 C14.55,20.5 15,20.95 15,21.5 C15,21.78 15.22,22 15.5,22 L18,22 C18.28,22 18.5,21.78 18.5,21.5 C18.5,20.5 18.91,19.23 19.25,18.87 C20.96,17.08 22,14.66 22,12 C22,6.48 17.52,2 12,2 Z M12,17 C9.24,17 7,15.5 7,15.5 C7,15.5 8.5,14 12,14 C15.5,14 17,15.5 17,15.5 C17,15.5 14.76,17 12,17 Z"/>
+                            </svg>
+                            DESCHIDE ÎN WAZE
+                        </a>
+                    </div>
+
+                    <!-- Locația 2: Petrecerea -->
+                    <div class="location-card">
+                        <div class="location-title">🥂 PETRECEREA / RECEPÇÃO</div>
+                        <div class="location-name">Kapari Restaurant Cosmopolis</div>
+                        <div class="location-address">Șoseaua de Centură 50, Cosmopolis Plaza</div>
+                        <div class="location-time">Ora / Horário: 17:00</div>
+                        
+                        <a href="https://waze.com/ul?q=Kapari%20Restaurant%20Cosmopolis&navigate=yes" class="waze-btn" target="_blank">
+                            <svg class="waze-icon" viewBox="0 0 24 24">
+                                <path d="M18.5,9.5 C18.5,8.12 17.38,7 16,7 C14.62,7 13.5,8.12 13.5,9.5 C13.5,10.88 14.62,12 16,12 C17.38,12 18.5,10.88 18.5,9.5 Z M8,7 C6.62,7 5.5,8.12 5.5,9.5 C5.5,10.88 6.62,12 8,12 C9.38,12 10.5,10.88 10.5,9.5 C10.5,8.12 9.38,7 8,7 Z M12,2 C6.48,2 2,6.48 2,12 C2,14.66 3.04,17.08 4.75,18.87 C5.09,19.23 5.5,20.5 5.5,21.5 C5.5,21.78 5.72,22 6,22 L8.5,22 C8.78,22 9,21.78 9,21.5 C9,20.95 9.45,20.5 10,20.5 L14,20.5 C14.55,20.5 15,20.95 15,21.5 C15,21.78 15.22,22 15.5,22 L18,22 C18.28,22 18.5,21.78 18.5,21.5 C18.5,20.5 18.91,19.23 19.25,18.87 C20.96,17.08 22,14.66 22,12 C22,6.48 17.52,2 12,2 Z M12,17 C9.24,17 7,15.5 7,15.5 C7,15.5 8.5,14 12,14 C15.5,14 17,15.5 17,15.5 C17,15.5 14.76,17 12,17 Z"/>
+                            </svg>
+                            DESCHIDE ÎN WAZE
+                        </a>
+                    </div>
+
+                </div>
+
+                <div class="divider"></div>
+
+                <!-- Buton WhatsApp RSVP -->
+                <div>
+                    <a href="https://wa.me/40767237282?text=Salut!%20Confirm%20cu%20drag%20prezen%C8%9Ba%20la%20cununia%20voastr%C4%83!" class="btn-confirm" target="_blank">
+                        CONFIRMĂ PREZENȚA / CONFIRMAR
+                    </a>
+                    <p class="rsvp-deadline">Vă rugăm să confirmați până la data de 20 August</p>
+                    <p class="rsvp-deadline-pt">Favor confirmar até o dia 20 de Agosto</p>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- SCRIPT COUNTDOWN -->
+    <script>
+        const targetDate = new Date("August 25, 2026 14:00:00").getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const difference = targetDate - now;
+
+            if (difference > 0) {
+                const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+                document.getElementById("cd-days").innerText = days < 10 ? "0" + days : days;
+                document.getElementById("cd-hours").innerText = hours < 10 ? "0" + hours : hours;
+                document.getElementById("cd-minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
+                document.getElementById("cd-seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
+            } else {
+                document.getElementById("cd-days").innerText = "00";
+                document.getElementById("cd-hours").innerText = "00";
+                document.getElementById("cd-minutes").innerText = "00";
+                document.getElementById("cd-seconds").innerText = "00";
+            }
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+    </script>
+
+</body>
+</html>
