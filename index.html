@@ -1,721 +1,482 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-    <title>Invitație Cununie Civilă - Amanda & Alexandru</title>
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Luxurious+Script&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invitație Cununie Civilă - Amanda & Alex</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+  
+  <style>
+    /* Reset & deblocare scroll */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-    <style>
-        :root {
-            --gold: #bfa054;
-            --gold-light: #e6d39a;
-            --rose-burgundy: #b87b84;
-            --text-dark: #333333;
-            --bg-paper: #ffffff;
-        }
+    html, body {
+      width: 100%;
+      min-height: 100vh;
+      background-color: #0d0d0d;
+      color: #f2e6d8;
+      font-family: 'Montserrat', sans-serif;
+      overflow-x: hidden;
+      overflow-y: auto !important; /* Deblochează scroll-ul */
+      -webkit-overflow-scrolling: touch;
+    }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+    /* Containerul principal cu cadrul de magnolii */
+    .page-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+      min-height: 100vh;
+      padding: 40px 25px 60px 25px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      text-align: center;
+    }
 
-        body {
-            background-color: #f7f5f0;
-            color: var(--text-dark);
-            font-family: 'Crimson Text', serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 30px 15px;
-            overflow-x: hidden;
-        }
+    /* Cadrul cu magnolii de pe fundal */
+    .frame-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('magnolie.png');
+      background-size: 100% 100%;
+      background-position: center;
+      background-repeat: no-repeat;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.85;
+    }
 
-        /* Cardul principal */
-        .invitation-card {
-            background-color: var(--bg-paper);
-            max-width: 560px;
-            width: 100%;
-            padding: 35px 25px;
-            text-align: center;
-            box-shadow: 0 12px 35px rgba(0,0,0,0.09);
-            position: relative;
-            overflow: hidden;
-            border-radius: 4px;
-        }
+    /* Conținutul propriu-zis peste cadru */
+    .content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      margin-top: 40px;
+    }
 
-        /* MAGNOLII ÎN COLȚURI - DESIGN ÎMBUNĂTĂȚIT & EFECT LA SCROLL */
-        .magnolia-corner {
-            position: absolute;
-            width: 210px;
-            height: 210px;
-            pointer-events: none;
-            z-index: 10;
-            transition: transform 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            will-change: transform;
-        }
+    .subtitle-top {
+      font-size: 0.85rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #d4af37;
+      margin-bottom: 15px;
+      font-weight: 500;
+    }
 
-        .magnolia-top-left {
-            top: -15px;
-            left: -15px;
-            transform-origin: top left;
-        }
+    .names {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3.5rem;
+      color: #ffffff;
+      line-height: 1.2;
+      margin-bottom: 25px;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+    }
 
-        .magnolia-top-right {
-            top: -15px;
-            right: -15px;
-            transform: scaleX(-1);
-            transform-origin: top right;
-        }
+    .names span {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-style: italic;
+      color: #d4af37;
+      margin: 5px 0;
+    }
 
-        .magnolia-bottom-left {
-            bottom: -15px;
-            left: -15px;
-            transform: scaleY(-1);
-            transform-origin: bottom left;
-        }
+    .divider {
+      width: 60px;
+      height: 1px;
+      background: #d4af37;
+      margin: 20px auto;
+    }
 
-        .magnolia-bottom-right {
-            bottom: -15px;
-            right: -15px;
-            transform: scale(-1, -1);
-            transform-origin: bottom right;
-        }
+    .message {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem;
+      line-height: 1.6;
+      color: #e6e6e6;
+      margin-bottom: 30px;
+      padding: 0 10px;
+    }
 
-        /* Bordura dubla aurie */
-        .outer-border {
-            border: 1px solid var(--gold-light);
-            padding: 10px;
-            position: relative;
-            z-index: 2;
-        }
+    .details-card {
+      background: rgba(20, 20, 20, 0.75);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      border-radius: 12px;
+      padding: 25px 20px;
+      margin-bottom: 30px;
+      backdrop-filter: blur(5px);
+    }
 
-        .inner-border {
-            border: 1px solid var(--gold);
-            padding: 35px 20px;
-            position: relative;
-            background: rgba(255, 255, 255, 0.95);
-        }
+    .detail-item {
+      margin-bottom: 20px;
+    }
 
-        /* Inelul Auriu cu Diamant */
-        .ring-icon-container {
-            margin-bottom: 15px;
-            display: inline-block;
-        }
-        .ring-svg {
-            width: 60px;
-            height: 60px;
-            filter: drop-shadow(0px 2px 4px rgba(191, 160, 84, 0.3));
-        }
+    .detail-item:last-child {
+      margin-bottom: 0;
+    }
 
-        .header-sub {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            color: var(--gold);
-            margin-bottom: 5px;
-            font-weight: 600;
-        }
+    .detail-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #d4af37;
+      margin-bottom: 5px;
+    }
 
-        .header-sub-pt {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.68rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--rose-burgundy);
-            margin-bottom: 15px;
-            font-style: italic;
-        }
+    .detail-val {
+      font-size: 1.1rem;
+      color: #ffffff;
+      font-weight: 500;
+    }
 
-        /* Nume Miri (Luxurious Script) */
-        .couple-names {
-            font-family: 'Luxurious Script', cursive;
-            font-size: 4.8rem;
-            color: var(--rose-burgundy);
-            line-height: 1.1;
-            margin: 10px 0 20px 0;
-            font-weight: normal;
-        }
+    /* Countdown Timer */
+    .countdown-title {
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #b3b3b3;
+      margin-bottom: 15px;
+    }
 
-        .intro-message {
-            font-style: italic;
-            font-size: 1.1rem;
-            line-height: 1.4;
-            color: #444;
-            margin-bottom: 8px;
-            padding: 0 10px;
-        }
+    .timer {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 35px;
+    }
 
-        .intro-message-pt {
-            font-style: italic;
-            font-size: 1.05rem;
-            line-height: 1.4;
-            color: #777;
-            margin-bottom: 25px;
-            padding: 0 10px;
-        }
+    .time-box {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      padding: 10px 12px;
+      border-radius: 8px;
+      min-width: 65px;
+    }
 
-        /* Data */
-        .date-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 15px;
-            margin: 25px 0 10px 0;
-        }
+    .time-num {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #ffffff;
+    }
 
-        .date-side {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--gold);
-            border-top: 1px solid var(--gold);
-            border-bottom: 1px solid var(--gold);
-            padding: 6px 8px;
-            min-width: 120px;
-            line-height: 1.3;
-        }
+    .time-lab {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      color: #a6a6a6;
+      margin-top: 2px;
+    }
 
-        .date-side span {
-            display: block;
-            font-size: 0.65rem;
-            color: var(--rose-burgundy);
-            font-weight: 500;
-        }
+    /* Butoane Acțiune */
+    .btn-group {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      width: 100%;
+      max-width: 300px;
+      margin: 0 auto;
+    }
 
-        .date-day {
-            font-size: 3.5rem;
-            font-family: 'Crimson Text', serif;
-            color: var(--rose-burgundy);
-            font-weight: 600;
-            line-height: 1;
-        }
+    .btn {
+      display: block;
+      padding: 14px 20px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+    }
 
-        /* Countdown Timer */
-        .countdown-title {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.72rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--gold);
-            margin-top: 25px;
-            margin-bottom: 12px;
-            font-weight: 600;
-        }
+    .btn-primary {
+      background: linear-gradient(135deg, #d4af37 0%, #aa820a 100%);
+      color: #000000;
+      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+    }
 
-        .countdown-grid {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 25px;
-        }
+    .btn-secondary {
+      background: transparent;
+      color: #ffffff;
+      border: 1px solid #d4af37;
+    }
 
-        .countdown-box {
-            background: rgba(247, 245, 240, 0.9);
-            border: 1px solid var(--gold-light);
-            border-radius: 4px;
-            padding: 8px 10px;
-            min-width: 65px;
-        }
-
-        .countdown-value {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: var(--rose-burgundy);
-            line-height: 1;
-        }
-
-        .countdown-label {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.58rem;
-            text-transform: uppercase;
-            color: #777;
-            margin-top: 4px;
-            letter-spacing: 0.5px;
-        }
-
-        /* Locații */
-        .locations-container {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            margin: 25px 0;
-        }
-
-        .location-card {
-            border: 1px solid rgba(191, 160, 84, 0.4);
-            padding: 18px 14px;
-            background: rgba(255, 255, 255, 0.85);
-            border-radius: 4px;
-            position: relative;
-        }
-
-        .location-title {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.72rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--gold);
-            margin-bottom: 6px;
-            font-weight: 600;
-        }
-
-        .location-name {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: var(--text-dark);
-            margin-bottom: 4px;
-        }
-
-        .location-address {
-            font-size: 0.92rem;
-            color: #666;
-            line-height: 1.3;
-            margin-bottom: 8px;
-        }
-
-        .location-time {
-            font-size: 0.98rem;
-            color: var(--rose-burgundy);
-            font-weight: 600;
-            font-style: italic;
-            margin-bottom: 12px;
-        }
-
-        /* WAZE BUTTON */
-        .waze-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-            background-color: #222222;
-            color: #ffffff;
-            text-decoration: none;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.7rem;
-            font-weight: 600;
-            padding: 8px 14px;
-            border-radius: 20px;
-            letter-spacing: 1px;
-            transition: all 0.2s ease;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-        }
-
-        .waze-btn:hover {
-            background-color: #33ccff;
-            color: #000000;
-        }
-
-        .waze-icon {
-            width: 16px;
-            height: 16px;
-            fill: currentColor;
-        }
-
-        .divider {
-            border: 0;
-            height: 1px;
-            background-image: linear-gradient(to right, rgba(0,0,0,0), var(--gold), rgba(0,0,0,0));
-            margin: 25px 0 20px 0;
-        }
-
-        /* FORMULAR RSVP INTERACTIV */
-        .rsvp-section {
-            background: rgba(247, 245, 240, 0.6);
-            border: 1px solid var(--gold-light);
-            border-radius: 6px;
-            padding: 20px 15px;
-            margin-top: 15px;
-        }
-
-        .rsvp-title {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--gold);
-            font-weight: 700;
-            margin-bottom: 4px;
-        }
-
-        .rsvp-subtitle {
-            font-size: 0.8rem;
-            color: var(--rose-burgundy);
-            font-style: italic;
-            margin-bottom: 15px;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-            text-align: left;
-        }
-
-        .form-label {
-            display: block;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.72rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #555;
-            margin-bottom: 6px;
-            font-weight: 600;
-            text-align: center;
-        }
-
-        .form-select {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid var(--gold-light);
-            border-radius: 4px;
-            font-family: 'Crimson Text', serif;
-            font-size: 1.1rem;
-            background-color: #ffffff;
-            color: var(--text-dark);
-            outline: none;
-            transition: border-color 0.2s;
-            text-align-last: center;
-            cursor: pointer;
-        }
-
-        .form-select:focus {
-            border-color: var(--gold);
-        }
-
-        .btn-confirm {
-            display: inline-block;
-            width: 100%;
-            background-color: #25D366; /* WhatsApp Green */
-            color: #ffffff;
-            text-decoration: none;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            padding: 14px 20px;
-            font-weight: 700;
-            border-radius: 4px;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
-            margin-top: 5px;
-        }
-
-        .btn-confirm:hover {
-            background-color: #1ebc57;
-        }
-
-        .rsvp-deadline {
-            font-size: 0.88rem;
-            font-style: italic;
-            color: #666;
-            margin-top: 15px;
-        }
-
-        .rsvp-deadline-pt {
-            font-size: 0.82rem;
-            font-style: italic;
-            color: #888;
-            margin-top: 2px;
-        }
-
-        @media (max-width: 480px) {
-            .couple-names { font-size: 3.8rem; }
-            .invitation-card { padding: 20px 10px; }
-            .inner-border { padding: 25px 10px; }
-            .magnolia-corner { width: 155px; height: 155px; }
-            .date-side { min-width: 95px; font-size: 0.65rem; }
-            .date-side span { font-size: 0.58rem; }
-        }
-    </style>
+    .footer-note {
+      margin-top: 40px;
+      font-size: 0.75rem;
+      color: #777777;
+    }
+  </style>
 </head>
 <body>
 
-    <div class="invitation-card" id="invitationCard">
+  <div class="page-wrapper">
+    <!-- Rama de magnolii (magnolie.png) pe fundal -->
+    <div class="frame-bg"></div>
 
-        <!-- MAGNOLII ÎN COLȚURI - SVG DETALIAT CU PETALE BOGATE ȘI RAMURI ELEGANTE -->
-        <svg class="magnolia-corner magnolia-top-left" id="magTL" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <g opacity="0.95">
-                <!-- Crenguțe și frunze -->
-                <path d="M0 0 Q 90 40 170 110" stroke="#8c7247" stroke-width="3" stroke-linecap="round"/>
-                <path d="M30 15 Q 110 90 190 130" stroke="#8c7247" stroke-width="2" stroke-linecap="round"/>
-                
-                <!-- Frunze verzi/măslinii -->
-                <path d="M40 20 C 70 5 110 35 90 65 C 60 75 30 40 40 20 Z" fill="#6b7c59" opacity="0.85"/>
-                <path d="M90 60 C 130 40 160 80 130 100 C 100 110 80 80 90 60 Z" fill="#586847" opacity="0.8"/>
-                <path d="M110 110 C 150 90 180 125 155 145 C 130 155 100 125 110 110 Z" fill="#7a8b6e" opacity="0.85"/>
-                
-                <!-- Petale suprapuse cu degrade-uri de roz pudrat și crem -->
-                <path d="M10 5 C 60 0 100 50 80 100 C 40 100 0 50 10 5 Z" fill="#e2b4bb" opacity="0.9"/>
-                <path d="M30 80 C 70 30 130 50 120 110 C 80 130 30 110 30 80 Z" fill="#dba1ac" opacity="0.85"/>
-                <path d="M5 25 C 45 30 85 85 55 125 C 20 115 0 70 5 25 Z" fill="#f4e3e6"/>
-                <path d="M25 10 C 75 20 105 75 80 115 C 45 105 15 60 25 10 Z" fill="#eed1d7"/>
-                <path d="M45 45 C 95 40 125 95 95 135 C 60 125 35 85 45 45 Z" fill="#f8ecee"/>
-                <path d="M15 40 C 55 50 75 105 45 120 C 20 110 5 80 15 40 Z" fill="#ffffff"/>
-                <path d="M35 30 C 70 45 85 95 60 115 C 35 105 25 70 35 30 Z" fill="#f2dada"/>
+    <!-- Conținutul Invitației -->
+    <div class="content">
+      <div class="subtitle-top">Sărbătorim Dragostea</div>
+      
+      <h1 class="names">
+        Amanda
+        <span>&</span>
+        Alex
+      </h1>
 
-                <!-- Boboc mic de magnolie -->
-                <path d="M140 100 C 170 90 180 130 160 140 C 140 145 130 120 140 100 Z" fill="#e2b4bb"/>
-                <path d="M145 105 C 165 100 175 125 158 135 C 145 138 138 120 145 105 Z" fill="#ffffff"/>
+      <div class="divider"></div>
 
-                <!-- Detalii stamine aurii -->
-                <circle cx="50" cy="75" r="3" fill="#bfa054"/>
-                <circle cx="58" cy="70" r="2.5" fill="#e6d39a"/>
-                <circle cx="62" cy="80" r="2.5" fill="#bfa054"/>
-                <circle cx="152" cy="118" r="2" fill="#bfa054"/>
-            </g>
-        </svg>
+      <p class="message">
+        Avem bucuria de a vă invita să ne fiți alături la celebrarea cununiei noastre civile!
+      </p>
 
-        <svg class="magnolia-corner magnolia-top-right" id="magTR" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <g opacity="0.95">
-                <path d="M0 0 Q 90 40 170 110" stroke="#8c7247" stroke-width="3" stroke-linecap="round"/>
-                <path d="M30 15 Q 110 90 190 130" stroke="#8c7247" stroke-width="2" stroke-linecap="round"/>
-                <path d="M40 20 C 70 5 110 35 90 65 C 60 75 30 40 40 20 Z" fill="#6b7c59" opacity="0.85"/>
-                <path d="M90 60 C 130 40 160 80 130 100 C 100 110 80 80 90 60 Z" fill="#586847" opacity="0.8"/>
-                <path d="M110 110 C 150 90 180 125 155 145 C 130 155 100 125 110 110 Z" fill="#7a8b6e" opacity="0.85"/>
-                <path d="M10 5 C 60 0 100 50 80 100 C 40 100 0 50 10 5 Z" fill="#e2b4bb" opacity="0.9"/>
-                <path d="M30 80 C 70 30 130 50 120 110 C 80 130 30 110 30 80 Z" fill="#dba1ac" opacity="0.85"/>
-                <path d="M5 25 C 45 30 85 85 55 125 C 20 115 0 70 5 25 Z" fill="#f4e3e6"/>
-                <path d="M25 10 C 75 20 105 75 80 115 C 45 105 15 60 25 10 Z" fill="#eed1d7"/>
-                <path d="M45 45 C 95 40 125 95 95 135 C 60 125 35 85 45 45 Z" fill="#f8ecee"/>
-                <path d="M15 40 C 55 50 75 105 45 120 C 20 110 5 80 15 40 Z" fill="#ffffff"/>
-                <path d="M35 30 C 70 45 85 95 60 115 C 35 105 25 70 35 30 Z" fill="#f2dada"/>
-                <path d="M140 100 C 170 90 180 130 160 140 C 140 145 130 120 140 100 Z" fill="#e2b4bb"/>
-                <path d="M145 105 C 165 100 175 125 158 135 C 145 138 138 120 145 105 Z" fill="#ffffff"/>
-                <circle cx="50" cy="75" r="3" fill="#bfa054"/>
-                <circle cx="58" cy="70" r="2.5" fill="#e6d39a"/>
-                <circle cx="62" cy="80" r="2.5" fill="#bfa054"/>
-            </g>
-        </svg>
-
-        <svg class="magnolia-corner magnolia-bottom-left" id="magBL" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <g opacity="0.95">
-                <path d="M0 0 Q 90 40 170 110" stroke="#8c7247" stroke-width="3" stroke-linecap="round"/>
-                <path d="M40 20 C 70 5 110 35 90 65 C 60 75 30 40 40 20 Z" fill="#6b7c59" opacity="0.85"/>
-                <path d="M10 5 C 60 0 100 50 80 100 C 40 100 0 50 10 5 Z" fill="#e2b4bb" opacity="0.9"/>
-                <path d="M5 25 C 45 30 85 85 55 125 C 20 115 0 70 5 25 Z" fill="#f4e3e6"/>
-                <path d="M25 10 C 75 20 105 75 80 115 C 45 105 15 60 25 10 Z" fill="#eed1d7"/>
-                <path d="M15 40 C 55 50 75 105 45 120 C 20 110 5 80 15 40 Z" fill="#ffffff"/>
-                <circle cx="50" cy="75" r="3" fill="#bfa054"/>
-            </g>
-        </svg>
-
-        <svg class="magnolia-corner magnolia-bottom-right" id="magBR" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <g opacity="0.95">
-                <path d="M0 0 Q 90 40 170 110" stroke="#8c7247" stroke-width="3" stroke-linecap="round"/>
-                <path d="M40 20 C 70 5 110 35 90 65 C 60 75 30 40 40 20 Z" fill="#6b7c59" opacity="0.85"/>
-                <path d="M10 5 C 60 0 100 50 80 100 C 40 100 0 50 10 5 Z" fill="#e2b4bb" opacity="0.9"/>
-                <path d="M5 25 C 45 30 85 85 55 125 C 20 115 0 70 5 25 Z" fill="#f4e3e6"/>
-                <path d="M25 10 C 75 20 105 75 80 115 C 45 105 15 60 25 10 Z" fill="#eed1d7"/>
-                <path d="M15 40 C 55 50 75 105 45 120 C 20 110 5 80 15 40 Z" fill="#ffffff"/>
-                <circle cx="50" cy="75" r="3" fill="#bfa054"/>
-            </g>
-        </svg>
-
-        <div class="outer-border">
-            <div class="inner-border">
-                
-                <!-- Inel Auriu -->
-                <div class="ring-icon-container">
-                    <svg class="ring-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="32" cy="38" r="18" stroke="#bfa054" stroke-width="3" fill="none"/>
-                        <circle cx="32" cy="38" r="14" stroke="#e6d39a" stroke-width="1" fill="none"/>
-                        <path d="M32 8 L38 16 L32 22 L26 16 Z" fill="#e6d39a" stroke="#bfa054" stroke-width="1.5"/>
-                        <path d="M32 8 L32 22" stroke="#ffffff" stroke-width="1"/>
-                        <path d="M20 12 L24 14" stroke="#bfa054" stroke-width="1.5" stroke-linecap="round"/>
-                        <path d="M44 12 L40 14" stroke="#bfa054" stroke-width="1.5" stroke-linecap="round"/>
-                    </svg>
-                </div>
-
-                <div class="header-sub">SĂRBĂTORIM DRAGOSTEA</div>
-                <div class="header-sub-pt">Celebrando o Amor</div>
-                
-                <!-- Nume Miri -->
-                <div class="couple-names">
-                    Amanda &amp; Alexandru
-                </div>
-                
-                <!-- Mesaj Bilingv -->
-                <p class="intro-message">
-                    Două inimi, o singură poveste! Vă așteptăm cu bucurie și emoție să ne fiți alături în momentul în care ne vom uni destinele.
-                </p>
-                <p class="intro-message-pt">
-                    Dois corações, uma só história! Esperamos por você com muita alegria e emoção para celebrar este momento em que uniremos nossos destinos.
-                </p>
-
-                <!-- Data (Bilingv) -->
-                <div class="date-container">
-                    <div class="date-side">
-                        MARȚI
-                        <span>Terça-feira</span>
-                    </div>
-                    <div class="date-day">25</div>
-                    <div class="date-side">
-                        AUGUST 2026
-                        <span>Agosto de 2026</span>
-                    </div>
-                </div>
-
-                <!-- COUNTDOWN TIMER -->
-                <div class="countdown-title">A MAI RĂMAS / FALTAM:</div>
-                <div class="countdown-grid">
-                    <div class="countdown-box">
-                        <div class="countdown-value" id="cd-days">00</div>
-                        <div class="countdown-label">Zile / Dias</div>
-                    </div>
-                    <div class="countdown-box">
-                        <div class="countdown-value" id="cd-hours">00</div>
-                        <div class="countdown-label">Ore / Horas</div>
-                    </div>
-                    <div class="countdown-box">
-                        <div class="countdown-value" id="cd-minutes">00</div>
-                        <div class="countdown-label">Min</div>
-                    </div>
-                    <div class="countdown-box">
-                        <div class="countdown-value" id="cd-seconds">00</div>
-                        <div class="countdown-label">Sec / Seg</div>
-                    </div>
-                </div>
-
-                <!-- Locații cu Siglă & Link Waze -->
-                <div class="locations-container">
-                    
-                    <!-- Locația 1: Cununia Civilă -->
-                    <div class="location-card">
-                        <div class="location-title">🏛️ CUNUNIA CIVILĂ / CASAMENTO CIVIL</div>
-                        <div class="location-name">Starea Civilă Popești-Leordeni</div>
-                        <div class="location-address">Str. 31A DN4 - Șos. Olteniței, Popești-Leordeni, Jud. Ilfov</div>
-                        <div class="location-time">Ora / Horário: 14:00</div>
-                        
-                        <a href="https://waze.com/ul?q=Starea%20Civila%20Popesti%20Leordeni&navigate=yes" class="waze-btn" target="_blank">
-                            <svg class="waze-icon" viewBox="0 0 24 24">
-                                <path d="M18.5,9.5 C18.5,8.12 17.38,7 16,7 C14.62,7 13.5,8.12 13.5,9.5 C13.5,10.88 14.62,12 16,12 C17.38,12 18.5,10.88 18.5,9.5 Z M8,7 C6.62,7 5.5,8.12 5.5,9.5 C5.5,10.88 6.62,12 8,12 C9.38,12 10.5,10.88 10.5,9.5 C10.5,8.12 9.38,7 8,7 Z M12,2 C6.48,2 2,6.48 2,12 C2,14.66 3.04,17.08 4.75,18.87 C5.09,19.23 5.5,20.5 5.5,21.5 C5.5,21.78 5.72,22 6,22 L8.5,22 C8.78,22 9,21.78 9,21.5 C9,20.95 9.45,20.5 10,20.5 L14,20.5 C14.55,20.5 15,20.95 15,21.5 C15,21.78 15.22,22 15.5,22 L18,22 C18.28,22 18.5,21.78 18.5,18.87 C20.96,17.08 22,14.66 22,12 C22,6.48 17.52,2 12,2 Z M12,17 C9.24,17 7,15.5 7,15.5 C7,15.5 8.5,14 12,14 C15.5,14 17,15.5 17,15.5 C17,15.5 14.76,17 12,17 Z"/>
-                            </svg>
-                            DESCHIDE ÎN WAZE
-                        </a>
-                    </div>
-
-                    <!-- Locația 2: Petrecerea -->
-                    <div class="location-card">
-                        <div class="location-title">🥂 PETRECEREA / RECEPÇÃO</div>
-                        <div class="location-name">Kapari Restaurant Cosmopolis</div>
-                        <div class="location-address">Șoseaua de Centură 50, Cosmopolis Plaza</div>
-                        <div class="location-time">Ora / Horário: 17:00</div>
-                        
-                        <a href="https://waze.com/ul?q=Kapari%20Restaurant%20Cosmopolis&navigate=yes" class="waze-btn" target="_blank">
-                            <svg class="waze-icon" viewBox="0 0 24 24">
-                                <path d="M18.5,9.5 C18.5,8.12 17.38,7 16,7 C14.62,7 13.5,8.12 13.5,9.5 C13.5,10.88 14.62,12 16,12 C17.38,12 18.5,10.88 18.5,9.5 Z M8,7 C6.62,7 5.5,8.12 5.5,9.5 C5.5,10.88 6.62,12 8,12 C9.38,12 10.5,10.88 10.5,9.5 C10.5,8.12 9.38,7 8,7 Z M12,2 C6.48,2 2,6.48 2,12 C2,14.66 3.04,17.08 4.75,18.87 C5.09,19.23 5.5,20.5 5.5,21.5 C5.5,21.78 5.72,22 6,22 L8.5,22 C8.78,22 9,21.78 9,21.5 C9,20.95 9.45,20.5 10,20.5 L14,20.5 C14.55,20.5 15,20.95 15,21.5 C15,21.78 15.22,22 15.5,22 L18,22 C18.28,22 18.5,21.78 18.5,18.87 C20.96,17.08 22,14.66 22,12 C22,6.48 17.52,2 12,2 Z M12,17 C9.24,17 7,15.5 7,15.5 C7,15.5 8.5,14 12,14 C15.5,14 17,15.5 17,15.5 C17,15.5 14.76,17 12,17 Z"/>
-                            </svg>
-                            DESCHIDE ÎN WAZE
-                        </a>
-                    </div>
-
-                </div>
-
-                <div class="divider"></div>
-
-                <!-- FORMULAR INTERACTIV RSVP -->
-                <div class="rsvp-section">
-                    <div class="rsvp-title">CONFIRMARE / CONFIRMAÇÃO</div>
-                    <div class="rsvp-subtitle">Selectați numărul de persoane care vor participa:</div>
-
-                    <div class="form-group">
-                        <label class="form-label" for="guest-count">Număr persoane / Número de pessoas:</label>
-                        <select id="guest-count" class="form-select">
-                            <option value="1 persoană">1 persoană / pessoa</option>
-                            <option value="2 persoane" selected>2 persoane / pessoas</option>
-                            <option value="3 persoane">3 persoane / pessoas</option>
-                            <option value="4 persoane">4 persoane / pessoas</option>
-                            <option value="5+ persoane">5+ persoane / pessoas</option>
-                        </select>
-                    </div>
-
-                    <button type="button" class="btn-confirm" onclick="sendWhatsApp()">
-                        CONFIRMĂ PE WHATSAPP
-                    </button>
-
-                    <p class="rsvp-deadline">Vă rugăm să confirmați până la data de 20 August</p>
-                    <p class="rsvp-deadline-pt">Favor confirmar até o dia 20 de Agosto</p>
-                </div>
-
-            </div>
+      <div class="details-card">
+        <div class="detail-item">
+          <div class="detail-label">Data & Ora</div>
+          <div class="detail-val">Sâmbătă, 22 August 2026 — Ora 16:00</div>
+        </div>
+        
+        <div class="detail-item" style="margin-top: 15px;">
+          <div class="detail-label">Locația Cununiei Civilă</div>
+          <div class="detail-val">Primăria Popești-Leordeni</div>
         </div>
 
+        <div class="detail-item" style="margin-top: 15px;">
+          <div class="detail-label">Petrecerea</div>
+          <div class="detail-val">Restaurant Cosmopolis</div>
+        </div>
+      </div>
+
+      <div class="countdown-title">Numărătoare inversă</div>
+      <div class="timer">
+        <div class="time-box">
+          <div class="time-num" id="days">00</div>
+          <div class="time-lab">Zile</div>
+        </div>
+        <div class="time-box">
+          <div class="time-num" id="hours">00</div>
+          <div class="time-lab">Ore</div>
+        </div>
+        <div class="time-box">
+          <div class="time-num" id="minutes">00</div>
+          <div class="time-lab">Min</div>
+        </div>
+        <div class="time-box">
+          <div class="time-num" id="seconds">00</div>
+          <div class="time-lab">Sec</div>
+        </div>
+      </div>
+
+      <div class="btn-group">
+        <a href="https://maps.google.com" target="_blank" class="btn btn-primary">Locație Hărți</a>
+        <a href="tel:+40700000000" class="btn btn-secondary">Confirmă Prezența</a>
+      </div>
+
+      <div class="footer-note">
+        Vă așteptăm cu drag!
+      </div>
     </div>
+  </div>
 
-    <!-- SCRIPTURI: COUNTDOWN, WHATSAPP RSVP & PARALLAX SCROLL EFFECT FOR MAGNOLIAS -->
-    <script>
-        // --- COUNTDOWN TIMER ---
-        const targetDate = new Date("August 25, 2026 14:00:00").getTime();
+  <script>
+    // Setăm data evenimentului (22 August 2026)
+    const eventDate = new Date("Aug 22, 2026 16:00:00").getTime();
 
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const difference = targetDate - now;
+    const timer = setInterval(function() {
+      const now = new Date().getTime();
+      const distance = eventDate - now;
 
-            if (difference > 0) {
-                const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+      if (distance < 0) {
+        clearInterval(timer);
+        document.querySelector(".timer").innerHTML = "<div style='color:#d4af37; font-weight:600;'>Evenimentul a avut loc!</div>";
+        return;
+      }
 
-                document.getElementById("cd-days").innerText = days < 10 ? "0" + days : days;
-                document.getElementById("cd-hours").innerText = hours < 10 ? "0" + hours : hours;
-                document.getElementById("cd-minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
-                document.getElementById("cd-seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
-            } else {
-                document.getElementById("cd-days").innerText = "00";
-                document.getElementById("cd-hours").innerText = "00";
-                document.getElementById("cd-minutes").innerText = "00";
-                document.getElementById("cd-seconds").innerText = "00";
-            }
-        }
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 100Super! Am văzut că ai urcat fișierul **`magnolie.png`** direct în root-ul repository-ului GitHub (`invitatie-cununie`).
 
-        updateCountdown();
-        setInterval(updateCountdown, 1000);
+Pentru că imaginea ta este o **ramă completă de magnolii** pe fundal negru, cel mai elegant și curat mod de a o integra este:
+1. Să setăm fundalul paginii/invitației pe negru sau nuanță închisă ca să se îmbine perfect, **SAU** să o suprapunem ca cadru de fundal (background frame).
+2. Să rezolvăm definitiv problema cu scroll-ul pe mobil eliminând blocurile de tip `overflow: hidden` și setând containerul flexibil.
 
-        // --- TRIMITERE PE WHATSAPP ---
-        function sendWhatsApp() {
-            const count = document.getElementById("guest-count").value;
+Iată codul complet actualizat pentru **`index.html`** (include HTML + CSS integrat în `<style>`), gata de copiat și înlocuit complet în GitHub:
 
-            let message = `Salut! Confirmăm cu drag prezența la cununia voastră!\n\n`;
-            message += `👥 Număr persoane: ${count}`;
+```html
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invitație Cununie - Amanda & Alex</title>
+  
+  <!-- Fonturi elegante Google -->
+  <link rel="preconnect" href="[https://fonts.googleapis.com](https://fonts.googleapis.com)">
+  <link rel="preconnect" href="[https://fonts.gstatic.com](https://fonts.gstatic.com)" crossorigin>
+  <link href="[https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap](https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap)" rel="stylesheet">
 
-            const phone = "40767237282";
-            const encodedMessage = encodeURIComponent(message);
-            const whatsappUrl = `https://wa.me/${phone}?text=${encodedMessage}`;
+  <style>
+    /* Reset și deblocare SCROLL */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-            window.open(whatsappUrl, "_blank");
-        }
+    html, body {
+      width: 100%;
+      min-height: 100vh;
+      overflow-y: auto !important; /* Permite scroll-ul vertical pe orice dispozitiv */
+      -webkit-overflow-scrolling: touch;
+      background-color: #0b0b0b; /* Fundal închis ca să se potrivească perfect cu rama de magnolie */
+      font-family: 'Montserrat', sans-serif;
+      color: #f3e5d8;
+    }
 
-        // --- ANIMAȚIE / EFECT LA SCROLL PENTRU FLORI (MAGNOLII) ---
-        window.addEventListener('scroll', function() {
-            const scrolled = window.scrollY;
-            const magTL = document.getElementById('magTL');
-            const magTR = document.getElementById('magTR');
-            const magBL = document.getElementById('magBL');
-            const magBR = document.getElementById('magBR');
+    /* Containerul principal care folosește rama de magnolie */
+    .page-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 600px; /* Dimensiune optimă pe mobil și desktop */
+      margin: 0 auto;
+      min-height: 100vh;
+      padding: 60px 25px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
 
-            // Calculăm un factor de miscare si rotire fina
-            const moveY = scrolled * 0.15;
-            const rotateDeg = Math.min(scrolled * 0.04, 15);
-            const scaleVal = 1 + Math.min(scrolled * 0.0008, 0.15);
+    /* Rama de magnolie fixa/suprapusa */
+    .flower-frame {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.85;
+    }
 
-            if (magTL) magTL.style.transform = `translate(${-moveY*0.5}px, ${-moveY}px) rotate(${-rotateDeg}deg) scale(${scaleVal})`;
-            if (magTR) magTR.style.transform = `scaleX(-1) translate(${-moveY*0.5}px, ${-moveY}px) rotate(${rotateDeg}deg) scale(${scaleVal})`;
-            if (magBL) magBL.style.transform = `scaleY(-1) translate(${-moveY*0.3}px, ${moveY}px) scale(${scaleVal})`;
-            if (magBR) magBR.style.transform = `scale(-1, -1) translate(${-moveY*0.3}px, ${moveY}px) scale(${scaleVal})`;
-        });
-    </script>
+    /* Cadru auriu interior */
+    .content-card {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      padding: 40px 20px;
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      background: rgba(15, 15, 15, 0.75); /* Transparență subtilă pentru lizibilitate */
+      backdrop-filter: blur(4px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+      border-radius: 8px;
+    }
+
+    .subtitle {
+      font-size: 13px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #d4af37;
+      margin-bottom: 15px;
+      font-weight: 500;
+    }
+
+    .names {
+      font-family: 'Great Vibes', cursive;
+      font-size: 48px;
+      color: #ffffff;
+      line-height: 1.2;
+      margin: 10px 0 20px 0;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    }
+
+    .text-body {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      line-height: 1.6;
+      color: #e0e0e0;
+      margin-bottom: 25px;
+    }
+
+    .details-box {
+      border-top: 1px solid rgba(212, 175, 55, 0.3);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+      padding: 15px 0;
+      margin: 20px 0;
+    }
+
+    .date {
+      font-size: 18px;
+      font-weight: 600;
+      color: #d4af37;
+      letter-spacing: 1px;
+    }
+
+    .location {
+      font-size: 15px;
+      margin-top: 5px;
+      color: #cccccc;
+    }
+
+    .btn-location {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 12px 28px;
+      border: 1px solid #d4af37;
+      color: #d4af37;
+      text-decoration: none;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+      border-radius: 4px;
+    }
+
+    .btn-location:hover {
+      background: #d4af37;
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page-wrapper">
+    <!-- Poza de magnolie încărcată de tine -->
+    <img src="magnolie.png" alt="Magnolia Frame" class="flower-frame">
+
+    <!-- Conținutul Invitației -->
+    <div class="content-card">
+      <div class="subtitle">Sărbătorim</div>
+      
+      <div class="names">
+        Amanda <br>&<br> Alex
+      </div>
+
+      <div class="text-body">
+        Cu bucurie vă invităm să fiți alături de noi la celebrarea cununiei noastre.
+      </div>
+
+      <div class="details-box">
+        <div class="date">DATA ȘI ORA</div>
+        <div class="location">Locația evenimentului dumneavoastră</div>
+      </div>
+
+      <a href="[https://maps.google.com](https://maps.google.com)" target="_blank" class="btn-location">Vezi Locația pe Harta</a>
+    </div>
+  </div>
 
 </body>
 </html>
