@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Invitație Cununie Civilă - Amanda & Alexandru</title>
+  <title>Invitație Amanda & Alexandru</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,400;1,600&family=Great+Vibes&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
   
   <style>
     * {
@@ -19,199 +19,455 @@
     html, body {
       width: 100%;
       min-height: 100vh;
-      background-color: #121212; /* Fundal închis pentru ca rama magnolie1.png să se vadă exact la calitatea ei originală */
-      color: #4a4238;
+      background-color: #f2f0eb;
       font-family: 'Montserrat', sans-serif;
+      color: #5a5047;
       overflow-x: hidden;
       overflow-y: auto !important;
       -webkit-overflow-scrolling: touch;
+      padding: 20px 10px;
     }
 
-    .page-wrapper {
-      position: relative;
-      width: 100%;
-      max-width: 500px;
+    /* Outer Container cu rama aurie Dublă */
+    .card-container {
+      max-width: 440px;
       margin: 0 auto;
-      min-height: 100vh;
-      padding: 25px 15px 40px 15px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      background-color: #ffffff;
+      border: 1px solid #d4c391;
+      padding: 6px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+
+    .card-inner {
+      border: 1px solid #d4c391;
+      padding: 30px 18px;
       text-align: center;
-    }
-
-    /* Rama originala cu culorile ei Reale */
-    .frame-bg {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: url('magnolie1.png');
-      background-size: 100% 100%;
-      background-position: center;
-      background-repeat: no-repeat;
-      pointer-events: none;
-      z-index: 1;
-    }
-
-    /* Cardul central deschis la culoare */
-    .content {
       position: relative;
-      z-index: 2;
-      width: 100%;
-      margin-top: 30px;
-      margin-bottom: 30px;
-      background: #fdfbf7;
-      padding: 35px 20px;
-      border-radius: 12px;
-      border: 1px solid #d4af37;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     }
 
-    .subtitle {
-      font-size: 0.8rem;
-      letter-spacing: 3px;
+    /* Inelul auriu din header */
+    .ring-icon {
+      width: 45px;
+      height: 45px;
+      margin: 0 auto 15px auto;
+    }
+
+    .subtitle-main {
+      color: #c09d52;
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      font-weight: 700;
       text-transform: uppercase;
-      color: #b89230;
-      margin-bottom: 12px;
-      font-weight: 600;
+    }
+
+    .subtitle-sub {
+      color: #b0957a;
+      font-size: 0.7rem;
+      letter-spacing: 1.5px;
+      font-style: italic;
+      text-transform: uppercase;
+      margin-top: 2px;
+      margin-bottom: 20px;
     }
 
     .names {
       font-family: 'Great Vibes', cursive;
-      font-size: 3.6rem;
-      color: #4a3324;
+      font-size: 3.8rem;
+      color: #9e636b;
       line-height: 1.1;
+      font-weight: normal;
+    }
+
+    .names .and {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.2rem;
+      display: block;
+      margin: -5px 0;
+    }
+
+    .quote-ro {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.25rem;
+      color: #4a4238;
+      line-height: 1.4;
+      margin-top: 25px;
+      padding: 0 10px;
+    }
+
+    .quote-pt {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.05rem;
+      color: #7a6e62;
+      line-height: 1.4;
+      margin-top: 15px;
+      margin-bottom: 25px;
+      padding: 0 10px;
+    }
+
+    /* Blocul cu Data */
+    .date-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      margin: 25px 0;
+    }
+
+    .date-col {
+      flex: 1;
+      border-top: 1px solid #c09d52;
+      border-bottom: 1px solid #c09d52;
+      padding: 6px 0;
+    }
+
+    .date-col .day-ro {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #c09d52;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .date-col .day-pt {
+      font-size: 0.65rem;
+      color: #c09d52;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .date-number {
+      font-size: 2.8rem;
+      font-weight: 600;
+      color: #9e636b;
+      line-height: 1;
+    }
+
+    /* Temporizator */
+    .timer-title {
+      font-size: 0.7rem;
+      letter-spacing: 2px;
+      color: #c09d52;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .timer-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin-bottom: 30px;
+    }
+
+    .timer-box {
+      border: 1px solid #e2d7be;
+      border-radius: 4px;
+      padding: 8px 4px;
+      background: #faf8f5;
+    }
+
+    .timer-val {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #9e636b;
+    }
+
+    .timer-label {
+      font-size: 0.55rem;
+      color: #9a8b78;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+
+    /* Carduri Locații */
+    .location-card {
+      border: 1px solid #e2d7be;
+      border-radius: 6px;
+      padding: 20px 15px;
+      margin-bottom: 20px;
+      background: #ffffff;
+    }
+
+    .loc-title {
+      font-size: 0.75rem;
+      letter-spacing: 1.5px;
+      color: #c09d52;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .loc-title span {
+      color: #b0957a;
+      font-weight: 400;
+    }
+
+    .loc-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #2c2520;
+      margin: 8px 0 4px 0;
+    }
+
+    .loc-address {
+      font-size: 0.8rem;
+      color: #7a6e62;
+      line-height: 1.3;
+      margin-bottom: 12px;
+    }
+
+    .loc-time {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.1rem;
+      color: #9e636b;
       margin-bottom: 15px;
     }
 
-    .names span {
-      display: block;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.6rem;
-      font-style: italic;
-      color: #b89230;
-      margin: 4px 0;
-    }
-
-    .divider {
-      width: 50px;
-      height: 1px;
-      background: #b89230;
-      margin: 20px auto;
-    }
-
-    .message {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.3rem;
-      line-height: 1.5;
-      color: #4a4238;
-      margin-bottom: 25px;
-    }
-
-    .details {
-      margin-bottom: 25px;
-    }
-
-    .detail-item {
-      margin-bottom: 16px;
-    }
-
-    .detail-label {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      color: #b89230;
-      font-weight: 600;
-      margin-bottom: 3px;
-    }
-
-    .detail-val {
-      font-size: 1rem;
-      color: #2b2520;
-      font-weight: 500;
-    }
-
-    /* Grup Butoane Hărți & Waze */
-    .btn-group {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      width: 100%;
-      max-width: 280px;
-      margin: 20px auto 0 auto;
-    }
-
-    .btn {
-      display: block;
-      padding: 12px 20px;
-      border-radius: 25px;
-      text-decoration: none;
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      transition: all 0.3s ease;
-    }
-
-    .btn-main {
-      background: #b89230;
-      color: #ffffff;
-      box-shadow: 0 3px 10px rgba(184, 146, 48, 0.3);
-    }
-
     .btn-waze {
-      background: transparent;
-      color: #b89230;
-      border: 1px solid #b89230;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: #1c1c1c;
+      color: #ffffff;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+    }
+
+    /* Formular Confirmare */
+    .confirm-card {
+      border: 1px solid #e2d7be;
+      border-radius: 6px;
+      padding: 22px 15px;
+      background: #faf8f5;
+    }
+
+    .confirm-title {
+      font-size: 0.8rem;
+      letter-spacing: 1.5px;
+      color: #c09d52;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .confirm-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 0.95rem;
+      color: #9e636b;
+      margin-top: 4px;
+      margin-bottom: 15px;
+    }
+
+    .confirm-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: #4a4238;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .select-persons {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #d4c391;
+      border-radius: 4px;
+      background: #ffffff;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      color: #2c2520;
+      outline: none;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .btn-whatsapp {
+      display: block;
+      width: 100%;
+      background: #25d366;
+      color: #ffffff;
+      text-decoration: none;
+      padding: 14px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      border: none;
+      box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+      cursor: pointer;
+    }
+
+    .deadline-ro {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1rem;
+      color: #5a5047;
+      margin-top: 15px;
+    }
+
+    .deadline-pt {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 0.85rem;
+      color: #8c7e70;
+      margin-top: 2px;
     }
   </style>
 </head>
 <body>
 
-  <div class="page-wrapper">
-    <!-- Rama de magnolii exact așa cum e în poza originală -->
-    <div class="frame-bg"></div>
-
-    <div class="content">
-      <div class="subtitle">Sărbătorim</div>
+  <div class="card-container">
+    <div class="card-inner">
       
+      <!-- Inel Auriu SVG -->
+      <svg class="ring-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="32" cy="36" r="20" stroke="#c09d52" stroke-width="2.5"/>
+        <path d="M32 10L36 16L32 22L28 16L32 10Z" fill="#c09d52"/>
+      </svg>
+
+      <div class="subtitle-main">Sărbătorim Dragostea</div>
+      <div class="subtitle-sub">Celebrando o Amor</div>
+
       <h1 class="names">
         Amanda
-        <span>&</span>
+        <span class="and">&</span>
         Alexandru
       </h1>
 
-      <div class="divider"></div>
-
-      <p class="message">
-        Cu bucurie vă invităm să ne fiți alături la celebrarea cununiei noastre!
+      <p class="quote-ro">
+        Două inimi, o singură poveste! Vă așteptăm cu bucurie și emoție să ne fiți alături în momentul în care ne vom uni destinele.
+      </p>
+      
+      <p class="quote-pt">
+        Dois corações, uma só história! Esperamos por você com muita alegria e emoção para celebrar este momento em que uniremos nossos destinos.
       </p>
 
-      <div class="details">
-        <div class="detail-item">
-          <div class="detail-label">Data & Ora</div>
-          <div class="detail-val">Sâmbătă, 22 August 2026 — Ora 16:00</div>
+      <!-- Data -->
+      <div class="date-row">
+        <div class="date-col">
+          <div class="day-ro">Marți</div>
+          <div class="day-pt">Terça-Feira</div>
         </div>
+        <div class="date-number">25</div>
+        <div class="date-col">
+          <div class="day-ro">August 2026</div>
+          <div class="day-pt">Agosto de 2026</div>
+        </div>
+      </div>
+
+      <!-- Temporizator -->
+      <div class="timer-title">A mai rămas / Faltam:</div>
+      <div class="timer-grid">
+        <div class="timer-box">
+          <div class="timer-val" id="days">13</div>
+          <div class="timer-label">Zile / Dias</div>
+        </div>
+        <div class="timer-box">
+          <div class="timer-val" id="hours">14</div>
+          <div class="timer-label">Ore / Horas</div>
+        </div>
+        <div class="timer-box">
+          <div class="timer-val" id="minutes">13</div>
+          <div class="timer-label">Min</div>
+        </div>
+        <div class="timer-box">
+          <div class="timer-val" id="seconds">07</div>
+          <div class="timer-label">Sec / Seg</div>
+        </div>
+      </div>
+
+      <!-- Locație 1: Cununia Civilă -->
+      <div class="location-card">
+        <div class="loc-title">🏛️ Cununia Civilă / <span>Casamento Civil</span></div>
+        <div class="loc-name">Starea Civilă Popești-Leordeni</div>
+        <div class="loc-address">Str. 31A DN4 - Șos. Olteniței, Popești-Leordeni, Jud. Ilfov</div>
+        <div class="loc-time">Ora / Horário: 14:00</div>
         
-        <div class="detail-item">
-          <div class="detail-label">Locația Cununiei Civile</div>
-          <div class="detail-val">Primăria Popești-Leordeni</div>
-        </div>
-
-        <div class="detail-item">
-          <div class="detail-label">Petrecerea</div>
-          <div class="detail-val">Restaurant Cosmopolis</div>
-        </div>
+        <a href="https://waze.com/ul?q=Starea%20Civila%20Popesti%20Leordeni" target="_blank" class="btn-waze">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 5.52 4.48 10 10 10s10-4.48 10-10C22 6.48 17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
+          Deschide în Waze
+        </a>
       </div>
 
-      <div class="btn-group">
-        <a href="https://maps.google.com" target="_blank" class="btn btn-main">Google Maps</a>
-        <a href="https://waze.com/ul" target="_blank" class="btn btn-waze">Deschide în Waze</a>
+      <!-- Locație 2: Petrecerea -->
+      <div class="location-card">
+        <div class="loc-title">🥂 Petrecerea / <span>Recepção</span></div>
+        <div class="loc-name">Kapari Restaurant Cosmopolis</div>
+        <div class="loc-address">Șoseaua de Centură 50, Cosmopolis Plaza</div>
+        <div class="loc-time">Ora / Horário: 17:00</div>
+        
+        <a href="https://waze.com/ul?q=Kapari%20Restaurant%20Cosmopolis" target="_blank" class="btn-waze">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 5.52 4.48 10 10 10s10-4.48 10-10C22 6.48 17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
+          Deschide în Waze
+        </a>
       </div>
+
+      <!-- Confirmare WhatsApp -->
+      <div class="confirm-card">
+        <div class="confirm-title">Confirmare / Confirmação</div>
+        <div class="confirm-sub">Selectați numărul de persoane care vor participa:</div>
+
+        <label class="confirm-label">Număr persoane / Número de pessoas:</label>
+        <select class="select-persons" id="personCount">
+          <option value="1 persoană / pessoa">1 persoană / pessoa</option>
+          <option value="2 persoane / pessoas" selected>2 persoane / pessoas</option>
+          <option value="3 persoane / pessoas">3 persoane / pessoas</option>
+          <option value="4 persoane / pessoas">4 persoane / pessoas</option>
+        </select>
+
+        <button class="btn-whatsapp" onclick="sendWhatsApp()">Confirmă pe WhatsApp</button>
+
+        <div class="deadline-ro">Vă rugăm să confirmați până la data de 20 August</div>
+        <div class="deadline-pt">Favor confirmar até o dia 20 de Agosto</div>
+      </div>
+
     </div>
   </div>
+
+  <script>
+    // Countdown Timer logic
+    const targetDate = new Date('August 25, 2026 14:00:00').getTime();
+
+    function updateTimer() {
+      const now = new Date().getTime();
+      const diff = targetDate - now;
+
+      if (diff > 0) {
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+        document.getElementById('days').innerText = days < 10 ? '0' + days : days;
+        document.getElementById('hours').innerText = hours < 10 ? '0' + hours : hours;
+        document.getElementById('minutes').innerText = minutes < 10 ? '0' + minutes : minutes;
+        document.getElementById('seconds').innerText = seconds < 10 ? '0' + seconds : seconds;
+      }
+    }
+
+    setInterval(updateTimer, 1000);
+    updateTimer();
+
+    // WhatsApp logic
+    function sendWhatsApp() {
+      const count = document.getElementById('personCount').value;
+      const phone = "40700000000"; // Pune numărul tău de telefon
+      const text = encodeURIComponent(`Bună! Confirm participarea la cununie pentru: ${count}.`);
+      window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
+    }
+  </script>
 
 </body>
 </html>
