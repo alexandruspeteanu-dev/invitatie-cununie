@@ -28,7 +28,7 @@
       padding: 20px 10px;
     }
 
-    /* Outer Container cu rama aurie Dublă */
+    /* Outer Container cu rama aurie dublă */
     .card-container {
       max-width: 440px;
       margin: 0 auto;
@@ -45,11 +45,12 @@
       position: relative;
     }
 
-    /* Inelul auriu din header */
+    /* Inelul auriu cu diamant - mai mare și mai detaliat */
     .ring-icon {
-      width: 45px;
-      height: 45px;
-      margin: 0 auto 15px auto;
+      width: 70px;
+      height: 70px;
+      margin: 0 auto 10px auto;
+      filter: drop-shadow(0px 2px 4px rgba(192, 157, 82, 0.3));
     }
 
     .subtitle-main {
@@ -331,10 +332,37 @@
   <div class="card-container">
     <div class="card-inner">
       
-      <!-- Inel Auriu SVG -->
-      <svg class="ring-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="32" cy="36" r="20" stroke="#c09d52" stroke-width="2.5"/>
-        <path d="M32 10L36 16L32 22L28 16L32 10Z" fill="#c09d52"/>
+      <!-- Inel Auriu SVG cu Diamant -->
+      <svg class="ring-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Coroana inelului (Banda aurie) -->
+        <circle cx="50" cy="62" r="28" stroke="url(#goldGradient)" stroke-width="4.5"/>
+        <circle cx="50" cy="62" r="25.5" stroke="#fff" stroke-width="0.8" opacity="0.6"/>
+        
+        <!-- Ghearele de prindere ale diamantului -->
+        <path d="M42 36L44 31M58 36L56 31" stroke="#c09d52" stroke-width="2" stroke-linecap="round"/>
+        
+        <!-- Diamantul -->
+        <path d="M50 16L62 27L50 38L38 27L50 16Z" fill="url(#diamondGradient)" stroke="#b0c4de" stroke-width="1"/>
+        <path d="M50 16L44 27H56L50 16Z" fill="#ffffff" opacity="0.7"/>
+        <path d="M38 27L50 38L44 27H38Z" fill="#b0c4de" opacity="0.5"/>
+        <path d="M62 27L50 38L56 27H62Z" fill="#87cefa" opacity="0.5"/>
+
+        <!-- Străluciri de diamant (Glints) -->
+        <path d="M50 10V14M50 40V44M34 27H30M70 27H66" stroke="#c09d52" stroke-width="1.5" stroke-linecap="round"/>
+
+        <!-- Gradienti CSS interni -->
+        <defs>
+          <linearGradient id="goldGradient" x1="20" y1="34" x2="80" y2="90" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#e6ca65"/>
+            <stop offset="50%" stop-color="#c09d52"/>
+            <stop offset="100%" stop-color="#8c6d23"/>
+          </linearGradient>
+          <linearGradient id="diamondGradient" x1="38" y1="16" x2="62" y2="38" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#ffffff"/>
+            <stop offset="40%" stop-color="#e6f2ff"/>
+            <stop offset="100%" stop-color="#b0c4de"/>
+          </linearGradient>
+        </defs>
       </svg>
 
       <div class="subtitle-main">Sărbătorim Dragostea</div>
@@ -371,19 +399,19 @@
       <div class="timer-title">A mai rămas / Faltam:</div>
       <div class="timer-grid">
         <div class="timer-box">
-          <div class="timer-val" id="days">13</div>
+          <div class="timer-val" id="days">00</div>
           <div class="timer-label">Zile / Dias</div>
         </div>
         <div class="timer-box">
-          <div class="timer-val" id="hours">14</div>
+          <div class="timer-val" id="hours">00</div>
           <div class="timer-label">Ore / Horas</div>
         </div>
         <div class="timer-box">
-          <div class="timer-val" id="minutes">13</div>
+          <div class="timer-val" id="minutes">00</div>
           <div class="timer-label">Min</div>
         </div>
         <div class="timer-box">
-          <div class="timer-val" id="seconds">07</div>
+          <div class="timer-val" id="seconds">00</div>
           <div class="timer-label">Sec / Seg</div>
         </div>
       </div>
@@ -460,10 +488,10 @@
     setInterval(updateTimer, 1000);
     updateTimer();
 
-    // WhatsApp logic
+    // WhatsApp logic cu numărul tău
     function sendWhatsApp() {
       const count = document.getElementById('personCount').value;
-      const phone = "40700000000"; // Pune numărul tău de telefon
+      const phone = "40767237282";
       const text = encodeURIComponent(`Bună! Confirm participarea la cununie pentru: ${count}.`);
       window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
     }
