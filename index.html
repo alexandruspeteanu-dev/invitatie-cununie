@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Invitație Cununie Civilă</title>
+  <title>Invitație Cununie Civilă - Amanda & Alexandru</title>
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
   
   <style>
-    /* Reset & deblocare scroll pe mobil */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -19,11 +19,11 @@
     html, body {
       width: 100%;
       min-height: 100vh;
-      background-color: #fcf8f2; /* Fundalul luminos original */
+      background-color: #121212; /* Fundal închis pentru ca rama magnolie1.png să se vadă exact la calitatea ei originală */
       color: #4a4238;
       font-family: 'Montserrat', sans-serif;
       overflow-x: hidden;
-      overflow-y: auto !important; /* Deblochează scroll-ul */
+      overflow-y: auto !important;
       -webkit-overflow-scrolling: touch;
     }
 
@@ -33,14 +33,14 @@
       max-width: 500px;
       margin: 0 auto;
       min-height: 100vh;
-      padding: 30px 20px 50px 20px;
+      padding: 25px 15px 40px 15px;
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
     }
 
-    /* Rama de magnolii cu eliminare automată de fundal negru prin CSS */
+    /* Rama originala cu culorile ei Reale */
     .frame-bg {
       position: absolute;
       top: 0;
@@ -53,23 +53,20 @@
       background-repeat: no-repeat;
       pointer-events: none;
       z-index: 1;
-      
-      /* Secretul CSS: elimină fundalul negru din imagine */
-      mix-blend-mode: screen; 
-      filter: contrast(110%) brightness(105%);
     }
 
-    /* Cardul cu conținutul invitației */
+    /* Cardul central deschis la culoare */
     .content {
       position: relative;
       z-index: 2;
       width: 100%;
-      margin-top: 40px;
-      background: rgba(253, 248, 242, 0.88);
+      margin-top: 30px;
+      margin-bottom: 30px;
+      background: #fdfbf7;
       padding: 35px 20px;
       border-radius: 12px;
-      border: 1px solid rgba(184, 146, 48, 0.35);
-      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      border: 1px solid #d4af37;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     }
 
     .subtitle {
@@ -77,16 +74,16 @@
       letter-spacing: 3px;
       text-transform: uppercase;
       color: #b89230;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
       font-weight: 600;
     }
 
     .names {
       font-family: 'Great Vibes', cursive;
-      font-size: 3.8rem;
-      color: #5a3d28;
+      font-size: 3.6rem;
+      color: #4a3324;
       line-height: 1.1;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
     }
 
     .names span {
@@ -95,7 +92,7 @@
       font-size: 1.6rem;
       font-style: italic;
       color: #b89230;
-      margin: 5px 0;
+      margin: 4px 0;
     }
 
     .divider {
@@ -118,7 +115,7 @@
     }
 
     .detail-item {
-      margin-bottom: 14px;
+      margin-bottom: 16px;
     }
 
     .detail-label {
@@ -127,6 +124,7 @@
       letter-spacing: 2px;
       color: #b89230;
       font-weight: 600;
+      margin-bottom: 3px;
     }
 
     .detail-val {
@@ -135,26 +133,45 @@
       font-weight: 500;
     }
 
-    .btn-location {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 12px 28px;
-      background: #b89230;
-      color: #ffffff;
+    /* Grup Butoane Hărți & Waze */
+    .btn-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      width: 100%;
+      max-width: 280px;
+      margin: 20px auto 0 auto;
+    }
+
+    .btn {
+      display: block;
+      padding: 12px 20px;
+      border-radius: 25px;
       text-decoration: none;
-      font-size: 0.8rem;
+      font-size: 0.75rem;
+      font-weight: 600;
       letter-spacing: 2px;
       text-transform: uppercase;
-      border-radius: 25px;
-      font-weight: 600;
-      box-shadow: 0 3px 10px rgba(184, 146, 48, 0.25);
+      transition: all 0.3s ease;
+    }
+
+    .btn-main {
+      background: #b89230;
+      color: #ffffff;
+      box-shadow: 0 3px 10px rgba(184, 146, 48, 0.3);
+    }
+
+    .btn-waze {
+      background: transparent;
+      color: #b89230;
+      border: 1px solid #b89230;
     }
   </style>
 </head>
 <body>
 
   <div class="page-wrapper">
-    <!-- Rama cu magnolie1.png & filtrul CSS de transparență -->
+    <!-- Rama de magnolii exact așa cum e în poza originală -->
     <div class="frame-bg"></div>
 
     <div class="content">
@@ -163,7 +180,7 @@
       <h1 class="names">
         Amanda
         <span>&</span>
-        Alex
+        Alexandru
       </h1>
 
       <div class="divider"></div>
@@ -179,7 +196,7 @@
         </div>
         
         <div class="detail-item">
-          <div class="detail-label">Locația Cununiei Civilă</div>
+          <div class="detail-label">Locația Cununiei Civile</div>
           <div class="detail-val">Primăria Popești-Leordeni</div>
         </div>
 
@@ -189,7 +206,10 @@
         </div>
       </div>
 
-      <a href="https://maps.google.com" target="_blank" class="btn-location">Vezi Locația</a>
+      <div class="btn-group">
+        <a href="https://maps.google.com" target="_blank" class="btn btn-main">Google Maps</a>
+        <a href="https://waze.com/ul" target="_blank" class="btn btn-waze">Deschide în Waze</a>
+      </div>
     </div>
   </div>
 
