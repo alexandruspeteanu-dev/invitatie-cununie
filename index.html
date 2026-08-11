@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <title>Invitație Cununie Civilă - Amanda & Alexandru</title>
     
-    <!-- Google Fonts originale Vainvit -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Luxurious+Script&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -17,7 +17,6 @@
             --rose-burgundy: #b87b84;
             --text-dark: #333333;
             --bg-paper: #ffffff;
-            --waze-blue: #33ccff;
         }
 
         * {
@@ -322,36 +321,101 @@
             margin: 25px 0 20px 0;
         }
 
-        /* Buton WhatsApp RSVP */
+        /* FORMULAR RSVP INTERACTIV */
+        .rsvp-section {
+            background: rgba(247, 245, 240, 0.6);
+            border: 1px solid var(--gold-light);
+            border-radius: 6px;
+            padding: 20px 15px;
+            margin-top: 15px;
+        }
+
+        .rsvp-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--gold);
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .rsvp-subtitle {
+            font-size: 0.8rem;
+            color: var(--rose-burgundy);
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .form-label {
+            display: block;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #555;
+            margin-bottom: 6px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .form-select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--gold-light);
+            border-radius: 4px;
+            font-family: 'Crimson Text', serif;
+            font-size: 1.1rem;
+            background-color: #ffffff;
+            color: var(--text-dark);
+            outline: none;
+            transition: border-color 0.2s;
+            text-align-last: center;
+            cursor: pointer;
+        }
+
+        .form-select:focus {
+            border-color: var(--gold);
+        }
+
         .btn-confirm {
             display: inline-block;
-            background-color: var(--gold);
+            width: 100%;
+            background-color: #25D366; /* WhatsApp Green */
             color: #ffffff;
             text-decoration: none;
             font-family: 'Montserrat', sans-serif;
             font-size: 0.8rem;
             text-transform: uppercase;
             letter-spacing: 2px;
-            padding: 14px 24px;
-            font-weight: 600;
-            border-radius: 2px;
+            padding: 14px 20px;
+            font-weight: 700;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(191, 160, 84, 0.3);
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+            margin-top: 5px;
         }
 
         .btn-confirm:hover {
-            background-color: #a38541;
+            background-color: #1ebc57;
         }
 
         .rsvp-deadline {
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             font-style: italic;
             color: #666;
-            margin-top: 10px;
+            margin-top: 15px;
         }
 
         .rsvp-deadline-pt {
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             font-style: italic;
             color: #888;
             margin-top: 2px;
@@ -521,11 +585,26 @@
 
                 <div class="divider"></div>
 
-                <!-- Buton WhatsApp RSVP -->
-                <div>
-                    <a href="https://wa.me/40767237282?text=Salut!%20Confirm%20cu%20drag%20prezen%C8%9Ba%20la%20cununia%20voastr%C4%83!" class="btn-confirm" target="_blank">
-                        CONFIRMĂ PREZENȚA / CONFIRMAR
-                    </a>
+                <!-- FORMULAR INTERACTIV RSVP (SIMPLIFICAT) -->
+                <div class="rsvp-section">
+                    <div class="rsvp-title">CONFIRMARE / CONFIRMAÇÃO</div>
+                    <div class="rsvp-subtitle">Selectați numărul de persoane care vor participa:</div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="guest-count">Număr persoane / Número de pessoas:</label>
+                        <select id="guest-count" class="form-select">
+                            <option value="1 persoană">1 persoană / pessoa</option>
+                            <option value="2 persoane" selected>2 persoane / pessoas</option>
+                            <option value="3 persoane">3 persoane / pessoas</option>
+                            <option value="4 persoane">4 persoane / pessoas</option>
+                            <option value="5+ persoane">5+ persoane / pessoas</option>
+                        </select>
+                    </div>
+
+                    <button type="button" class="btn-confirm" onclick="sendWhatsApp()">
+                        CONFIRMĂ PE WHATSAPP
+                    </button>
+
                     <p class="rsvp-deadline">Vă rugăm să confirmați până la data de 20 August</p>
                     <p class="rsvp-deadline-pt">Favor confirmar até o dia 20 de Agosto</p>
                 </div>
@@ -535,8 +614,9 @@
 
     </div>
 
-    <!-- SCRIPT COUNTDOWN -->
+    <!-- SCRIPTURI: COUNTDOWN & WHATSAPP SIMPLE RSVP -->
     <script>
+        // --- COUNTDOWN TIMER ---
         const targetDate = new Date("August 25, 2026 14:00:00").getTime();
 
         function updateCountdown() {
@@ -563,6 +643,20 @@
 
         updateCountdown();
         setInterval(updateCountdown, 1000);
+
+        // --- TRIMITERE PE WHATSAPP ---
+        function sendWhatsApp() {
+            const count = document.getElementById("guest-count").value;
+
+            let message = `Salut! Confirmăm cu drag prezența la cununia voastră!\n\n`;
+            message += `👥 Număr persoane: ${count}`;
+
+            const phone = "40767237282";
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappUrl = `https://wa.me/${phone}?text=${encodedMessage}`;
+
+            window.open(whatsappUrl, "_blank");
+        }
     </script>
 
 </body>
