@@ -34,6 +34,7 @@
             align-items: center;
             min-height: 100vh;
             padding: 30px 15px;
+            overflow-x: hidden;
         }
 
         /* Cardul principal */
@@ -46,38 +47,45 @@
             box-shadow: 0 12px 35px rgba(0,0,0,0.09);
             position: relative;
             overflow: hidden;
+            border-radius: 4px;
         }
 
-        /* MAGNOLII ÎN COLȚURI */
+        /* MAGNOLII ÎN COLȚURI - DESIGN ÎMBUNĂTĂȚIT & EFECT LA SCROLL */
         .magnolia-corner {
             position: absolute;
-            width: 220px;
-            height: 220px;
+            width: 210px;
+            height: 210px;
             pointer-events: none;
             z-index: 10;
+            transition: transform 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            will-change: transform;
         }
 
         .magnolia-top-left {
-            top: -10px;
-            left: -10px;
+            top: -15px;
+            left: -15px;
+            transform-origin: top left;
         }
 
         .magnolia-top-right {
-            top: -10px;
-            right: -10px;
+            top: -15px;
+            right: -15px;
             transform: scaleX(-1);
+            transform-origin: top right;
         }
 
         .magnolia-bottom-left {
-            bottom: -10px;
-            left: -10px;
+            bottom: -15px;
+            left: -15px;
             transform: scaleY(-1);
+            transform-origin: bottom left;
         }
 
         .magnolia-bottom-right {
-            bottom: -10px;
-            right: -10px;
+            bottom: -15px;
+            right: -15px;
             transform: scale(-1, -1);
+            transform-origin: bottom right;
         }
 
         /* Bordura dubla aurie */
@@ -425,7 +433,7 @@
             .couple-names { font-size: 3.8rem; }
             .invitation-card { padding: 20px 10px; }
             .inner-border { padding: 25px 10px; }
-            .magnolia-corner { width: 140px; height: 140px; }
+            .magnolia-corner { width: 155px; height: 155px; }
             .date-side { min-width: 95px; font-size: 0.65rem; }
             .date-side span { font-size: 0.58rem; }
         }
@@ -433,53 +441,84 @@
 </head>
 <body>
 
-    <div class="invitation-card">
+    <div class="invitation-card" id="invitationCard">
 
-        <!-- MAGNOLII ÎN COLȚURI -->
-        <svg class="magnolia-corner magnolia-top-left" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <g opacity="0.9">
-                <path d="M10,80 C30,40 80,30 110,10 C90,50 60,80 10,80 Z" fill="#7a8b6e" opacity="0.75"/>
-                <path d="M80,10 C120,30 130,80 140,120 C100,100 70,60 80,10 Z" fill="#bfa054" opacity="0.6"/>
-                <path d="M0,0 C50,20 80,70 70,120 C30,100 10,50 0,0 Z" fill="#e2b4bb" />
-                <path d="M10,10 C60,40 70,90 50,130 C20,100 10,60 10,10 Z" fill="#d49ba5" />
-                <path d="M25,20 C70,50 80,100 40,110 C20,90 15,50 25,20 Z" fill="#f5dce0" />
-                <path d="M5,5 C30,30 40,60 20,80 C5,60 0,30 5,5 Z" fill="#c47d89" />
-                <path d="M0,0 Q60,60 120,80" stroke="#bfa054" stroke-width="2"/>
-                <circle cx="120" cy="80" r="4" fill="#bfa054"/>
-                <circle cx="95" cy="50" r="3" fill="#bfa054"/>
+        <!-- MAGNOLII ÎN COLȚURI - SVG DETALIAT CU PETALE BOGATE ȘI RAMURI ELEGANTE -->
+        <svg class="magnolia-corner magnolia-top-left" id="magTL" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g opacity="0.95">
+                <!-- Crenguțe și frunze -->
+                <path d="M0 0 Q 90 40 170 110" stroke="#8c7247" stroke-width="3" stroke-linecap="round"/>
+                <path d="M30 15 Q 110 90 190 130" stroke="#8c7247" stroke-width="2" stroke-linecap="round"/>
+                
+                <!-- Frunze verzi/măslinii -->
+                <path d="M40 20 C 70 5 110 35 90 65 C 60 75 30 40 40 20 Z" fill="#6b7c59" opacity="0.85"/>
+                <path d="M90 60 C 130 40 160 80 130 100 C 100 110 80 80 90 60 Z" fill="#586847" opacity="0.8"/>
+                <path d="M110 110 C 150 90 180 125 155 145 C 130 155 100 125 110 110 Z" fill="#7a8b6e" opacity="0.85"/>
+                
+                <!-- Petale suprapuse cu degrade-uri de roz pudrat și crem -->
+                <path d="M10 5 C 60 0 100 50 80 100 C 40 100 0 50 10 5 Z" fill="#e2b4bb" opacity="0.9"/>
+                <path d="M30 80 C 70 30 130 50 120 110 C 80 130 30 110 30 80 Z" fill="#dba1ac" opacity="0.85"/>
+                <path d="M5 25 C 45 30 85 85 55 125 C 20 115 0 70 5 25 Z" fill="#f4e3e6"/>
+                <path d="M25 10 C 75 20 105 75 80 115 C 45 105 15 60 25 10 Z" fill="#eed1d7"/>
+                <path d="M45 45 C 95 40 125 95 95 135 C 60 125 35 85 45 45 Z" fill="#f8ecee"/>
+                <path d="M15 40 C 55 50 75 105 45 120 C 20 110 5 80 15 40 Z" fill="#ffffff"/>
+                <path d="M35 30 C 70 45 85 95 60 115 C 35 105 25 70 35 30 Z" fill="#f2dada"/>
+
+                <!-- Boboc mic de magnolie -->
+                <path d="M140 100 C 170 90 180 130 160 140 C 140 145 130 120 140 100 Z" fill="#e2b4bb"/>
+                <path d="M145 105 C 165 100 175 125 158 135 C 145 138 138 120 145 105 Z" fill="#ffffff"/>
+
+                <!-- Detalii stamine aurii -->
+                <circle cx="50" cy="75" r="3" fill="#bfa054"/>
+                <circle cx="58" cy="70" r="2.5" fill="#e6d39a"/>
+                <circle cx="62" cy="80" r="2.5" fill="#bfa054"/>
+                <circle cx="152" cy="118" r="2" fill="#bfa054"/>
             </g>
         </svg>
 
-        <svg class="magnolia-corner magnolia-top-right" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <g opacity="0.9">
-                <path d="M10,80 C30,40 80,30 110,10 C90,50 60,80 10,80 Z" fill="#7a8b6e" opacity="0.75"/>
-                <path d="M80,10 C120,30 130,80 140,120 C100,100 70,60 80,10 Z" fill="#bfa054" opacity="0.6"/>
-                <path d="M0,0 C50,20 80,70 70,120 C30,100 10,50 0,0 Z" fill="#e2b4bb" />
-                <path d="M10,10 C60,40 70,90 50,130 C20,100 10,60 10,10 Z" fill="#d49ba5" />
-                <path d="M25,20 C70,50 80,100 40,110 C20,90 15,50 25,20 Z" fill="#f5dce0" />
-                <path d="M5,5 C30,30 40,60 20,80 C5,60 0,30 5,5 Z" fill="#c47d89" />
-                <path d="M0,0 Q60,60 120,80" stroke="#bfa054" stroke-width="2"/>
-                <circle cx="120" cy="80" r="4" fill="#bfa054"/>
+        <svg class="magnolia-corner magnolia-top-right" id="magTR" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g opacity="0.95">
+                <path d="M0 0 Q 90 40 170 110" stroke="#8c7247" stroke-width="3" stroke-linecap="round"/>
+                <path d="M30 15 Q 110 90 190 130" stroke="#8c7247" stroke-width="2" stroke-linecap="round"/>
+                <path d="M40 20 C 70 5 110 35 90 65 C 60 75 30 40 40 20 Z" fill="#6b7c59" opacity="0.85"/>
+                <path d="M90 60 C 130 40 160 80 130 100 C 100 110 80 80 90 60 Z" fill="#586847" opacity="0.8"/>
+                <path d="M110 110 C 150 90 180 125 155 145 C 130 155 100 125 110 110 Z" fill="#7a8b6e" opacity="0.85"/>
+                <path d="M10 5 C 60 0 100 50 80 100 C 40 100 0 50 10 5 Z" fill="#e2b4bb" opacity="0.9"/>
+                <path d="M30 80 C 70 30 130 50 120 110 C 80 130 30 110 30 80 Z" fill="#dba1ac" opacity="0.85"/>
+                <path d="M5 25 C 45 30 85 85 55 125 C 20 115 0 70 5 25 Z" fill="#f4e3e6"/>
+                <path d="M25 10 C 75 20 105 75 80 115 C 45 105 15 60 25 10 Z" fill="#eed1d7"/>
+                <path d="M45 45 C 95 40 125 95 95 135 C 60 125 35 85 45 45 Z" fill="#f8ecee"/>
+                <path d="M15 40 C 55 50 75 105 45 120 C 20 110 5 80 15 40 Z" fill="#ffffff"/>
+                <path d="M35 30 C 70 45 85 95 60 115 C 35 105 25 70 35 30 Z" fill="#f2dada"/>
+                <path d="M140 100 C 170 90 180 130 160 140 C 140 145 130 120 140 100 Z" fill="#e2b4bb"/>
+                <path d="M145 105 C 165 100 175 125 158 135 C 145 138 138 120 145 105 Z" fill="#ffffff"/>
+                <circle cx="50" cy="75" r="3" fill="#bfa054"/>
+                <circle cx="58" cy="70" r="2.5" fill="#e6d39a"/>
+                <circle cx="62" cy="80" r="2.5" fill="#bfa054"/>
             </g>
         </svg>
 
-        <svg class="magnolia-corner magnolia-bottom-left" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <g opacity="0.9">
-                <path d="M10,80 C30,40 80,30 110,10 C90,50 60,80 10,80 Z" fill="#7a8b6e" opacity="0.75"/>
-                <path d="M0,0 C50,20 80,70 70,120 C30,100 10,50 0,0 Z" fill="#e2b4bb" />
-                <path d="M10,10 C60,40 70,90 50,130 C20,100 10,60 10,10 Z" fill="#d49ba5" />
-                <path d="M25,20 C70,50 80,100 40,110 C20,90 15,50 25,20 Z" fill="#f5dce0" />
-                <path d="M0,0 Q60,60 120,80" stroke="#bfa054" stroke-width="2"/>
+        <svg class="magnolia-corner magnolia-bottom-left" id="magBL" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g opacity="0.95">
+                <path d="M0 0 Q 90 40 170 110" stroke="#8c7247" stroke-width="3" stroke-linecap="round"/>
+                <path d="M40 20 C 70 5 110 35 90 65 C 60 75 30 40 40 20 Z" fill="#6b7c59" opacity="0.85"/>
+                <path d="M10 5 C 60 0 100 50 80 100 C 40 100 0 50 10 5 Z" fill="#e2b4bb" opacity="0.9"/>
+                <path d="M5 25 C 45 30 85 85 55 125 C 20 115 0 70 5 25 Z" fill="#f4e3e6"/>
+                <path d="M25 10 C 75 20 105 75 80 115 C 45 105 15 60 25 10 Z" fill="#eed1d7"/>
+                <path d="M15 40 C 55 50 75 105 45 120 C 20 110 5 80 15 40 Z" fill="#ffffff"/>
+                <circle cx="50" cy="75" r="3" fill="#bfa054"/>
             </g>
         </svg>
 
-        <svg class="magnolia-corner magnolia-bottom-right" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <g opacity="0.9">
-                <path d="M10,80 C30,40 80,30 110,10 C90,50 60,80 10,80 Z" fill="#7a8b6e" opacity="0.75"/>
-                <path d="M0,0 C50,20 80,70 70,120 C30,100 10,50 0,0 Z" fill="#e2b4bb" />
-                <path d="M10,10 C60,40 70,90 50,130 C20,100 10,60 10,10 Z" fill="#d49ba5" />
-                <path d="M25,20 C70,50 80,100 40,110 C20,90 15,50 25,20 Z" fill="#f5dce0" />
-                <path d="M0,0 Q60,60 120,80" stroke="#bfa054" stroke-width="2"/>
+        <svg class="magnolia-corner magnolia-bottom-right" id="magBR" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g opacity="0.95">
+                <path d="M0 0 Q 90 40 170 110" stroke="#8c7247" stroke-width="3" stroke-linecap="round"/>
+                <path d="M40 20 C 70 5 110 35 90 65 C 60 75 30 40 40 20 Z" fill="#6b7c59" opacity="0.85"/>
+                <path d="M10 5 C 60 0 100 50 80 100 C 40 100 0 50 10 5 Z" fill="#e2b4bb" opacity="0.9"/>
+                <path d="M5 25 C 45 30 85 85 55 125 C 20 115 0 70 5 25 Z" fill="#f4e3e6"/>
+                <path d="M25 10 C 75 20 105 75 80 115 C 45 105 15 60 25 10 Z" fill="#eed1d7"/>
+                <path d="M15 40 C 55 50 75 105 45 120 C 20 110 5 80 15 40 Z" fill="#ffffff"/>
+                <circle cx="50" cy="75" r="3" fill="#bfa054"/>
             </g>
         </svg>
 
@@ -560,7 +599,7 @@
                         
                         <a href="https://waze.com/ul?q=Starea%20Civila%20Popesti%20Leordeni&navigate=yes" class="waze-btn" target="_blank">
                             <svg class="waze-icon" viewBox="0 0 24 24">
-                                <path d="M18.5,9.5 C18.5,8.12 17.38,7 16,7 C14.62,7 13.5,8.12 13.5,9.5 C13.5,10.88 14.62,12 16,12 C17.38,12 18.5,10.88 18.5,9.5 Z M8,7 C6.62,7 5.5,8.12 5.5,9.5 C5.5,10.88 6.62,12 8,12 C9.38,12 10.5,10.88 10.5,9.5 C10.5,8.12 9.38,7 8,7 Z M12,2 C6.48,2 2,6.48 2,12 C2,14.66 3.04,17.08 4.75,18.87 C5.09,19.23 5.5,20.5 5.5,21.5 C5.5,21.78 5.72,22 6,22 L8.5,22 C8.78,22 9,21.78 9,21.5 C9,20.95 9.45,20.5 10,20.5 L14,20.5 C14.55,20.5 15,20.95 15,21.5 C15,21.78 15.22,22 15.5,22 L18,22 C18.28,22 18.5,21.78 18.5,21.5 C18.5,20.5 18.91,19.23 19.25,18.87 C20.96,17.08 22,14.66 22,12 C22,6.48 17.52,2 12,2 Z M12,17 C9.24,17 7,15.5 7,15.5 C7,15.5 8.5,14 12,14 C15.5,14 17,15.5 17,15.5 C17,15.5 14.76,17 12,17 Z"/>
+                                <path d="M18.5,9.5 C18.5,8.12 17.38,7 16,7 C14.62,7 13.5,8.12 13.5,9.5 C13.5,10.88 14.62,12 16,12 C17.38,12 18.5,10.88 18.5,9.5 Z M8,7 C6.62,7 5.5,8.12 5.5,9.5 C5.5,10.88 6.62,12 8,12 C9.38,12 10.5,10.88 10.5,9.5 C10.5,8.12 9.38,7 8,7 Z M12,2 C6.48,2 2,6.48 2,12 C2,14.66 3.04,17.08 4.75,18.87 C5.09,19.23 5.5,20.5 5.5,21.5 C5.5,21.78 5.72,22 6,22 L8.5,22 C8.78,22 9,21.78 9,21.5 C9,20.95 9.45,20.5 10,20.5 L14,20.5 C14.55,20.5 15,20.95 15,21.5 C15,21.78 15.22,22 15.5,22 L18,22 C18.28,22 18.5,21.78 18.5,18.87 C20.96,17.08 22,14.66 22,12 C22,6.48 17.52,2 12,2 Z M12,17 C9.24,17 7,15.5 7,15.5 C7,15.5 8.5,14 12,14 C15.5,14 17,15.5 17,15.5 C17,15.5 14.76,17 12,17 Z"/>
                             </svg>
                             DESCHIDE ÎN WAZE
                         </a>
@@ -575,7 +614,7 @@
                         
                         <a href="https://waze.com/ul?q=Kapari%20Restaurant%20Cosmopolis&navigate=yes" class="waze-btn" target="_blank">
                             <svg class="waze-icon" viewBox="0 0 24 24">
-                                <path d="M18.5,9.5 C18.5,8.12 17.38,7 16,7 C14.62,7 13.5,8.12 13.5,9.5 C13.5,10.88 14.62,12 16,12 C17.38,12 18.5,10.88 18.5,9.5 Z M8,7 C6.62,7 5.5,8.12 5.5,9.5 C5.5,10.88 6.62,12 8,12 C9.38,12 10.5,10.88 10.5,9.5 C10.5,8.12 9.38,7 8,7 Z M12,2 C6.48,2 2,6.48 2,12 C2,14.66 3.04,17.08 4.75,18.87 C5.09,19.23 5.5,20.5 5.5,21.5 C5.5,21.78 5.72,22 6,22 L8.5,22 C8.78,22 9,21.78 9,21.5 C9,20.95 9.45,20.5 10,20.5 L14,20.5 C14.55,20.5 15,20.95 15,21.5 C15,21.78 15.22,22 15.5,22 L18,22 C18.28,22 18.5,21.78 18.5,21.5 C18.5,20.5 18.91,19.23 19.25,18.87 C20.96,17.08 22,14.66 22,12 C22,6.48 17.52,2 12,2 Z M12,17 C9.24,17 7,15.5 7,15.5 C7,15.5 8.5,14 12,14 C15.5,14 17,15.5 17,15.5 C17,15.5 14.76,17 12,17 Z"/>
+                                <path d="M18.5,9.5 C18.5,8.12 17.38,7 16,7 C14.62,7 13.5,8.12 13.5,9.5 C13.5,10.88 14.62,12 16,12 C17.38,12 18.5,10.88 18.5,9.5 Z M8,7 C6.62,7 5.5,8.12 5.5,9.5 C5.5,10.88 6.62,12 8,12 C9.38,12 10.5,10.88 10.5,9.5 C10.5,8.12 9.38,7 8,7 Z M12,2 C6.48,2 2,6.48 2,12 C2,14.66 3.04,17.08 4.75,18.87 C5.09,19.23 5.5,20.5 5.5,21.5 C5.5,21.78 5.72,22 6,22 L8.5,22 C8.78,22 9,21.78 9,21.5 C9,20.95 9.45,20.5 10,20.5 L14,20.5 C14.55,20.5 15,20.95 15,21.5 C15,21.78 15.22,22 15.5,22 L18,22 C18.28,22 18.5,21.78 18.5,18.87 C20.96,17.08 22,14.66 22,12 C22,6.48 17.52,2 12,2 Z M12,17 C9.24,17 7,15.5 7,15.5 C7,15.5 8.5,14 12,14 C15.5,14 17,15.5 17,15.5 C17,15.5 14.76,17 12,17 Z"/>
                             </svg>
                             DESCHIDE ÎN WAZE
                         </a>
@@ -585,7 +624,7 @@
 
                 <div class="divider"></div>
 
-                <!-- FORMULAR INTERACTIV RSVP (SIMPLIFICAT) -->
+                <!-- FORMULAR INTERACTIV RSVP -->
                 <div class="rsvp-section">
                     <div class="rsvp-title">CONFIRMARE / CONFIRMAÇÃO</div>
                     <div class="rsvp-subtitle">Selectați numărul de persoane care vor participa:</div>
@@ -614,7 +653,7 @@
 
     </div>
 
-    <!-- SCRIPTURI: COUNTDOWN & WHATSAPP SIMPLE RSVP -->
+    <!-- SCRIPTURI: COUNTDOWN, WHATSAPP RSVP & PARALLAX SCROLL EFFECT FOR MAGNOLIAS -->
     <script>
         // --- COUNTDOWN TIMER ---
         const targetDate = new Date("August 25, 2026 14:00:00").getTime();
@@ -657,6 +696,25 @@
 
             window.open(whatsappUrl, "_blank");
         }
+
+        // --- ANIMAȚIE / EFECT LA SCROLL PENTRU FLORI (MAGNOLII) ---
+        window.addEventListener('scroll', function() {
+            const scrolled = window.scrollY;
+            const magTL = document.getElementById('magTL');
+            const magTR = document.getElementById('magTR');
+            const magBL = document.getElementById('magBL');
+            const magBR = document.getElementById('magBR');
+
+            // Calculăm un factor de miscare si rotire fina
+            const moveY = scrolled * 0.15;
+            const rotateDeg = Math.min(scrolled * 0.04, 15);
+            const scaleVal = 1 + Math.min(scrolled * 0.0008, 0.15);
+
+            if (magTL) magTL.style.transform = `translate(${-moveY*0.5}px, ${-moveY}px) rotate(${-rotateDeg}deg) scale(${scaleVal})`;
+            if (magTR) magTR.style.transform = `scaleX(-1) translate(${-moveY*0.5}px, ${-moveY}px) rotate(${rotateDeg}deg) scale(${scaleVal})`;
+            if (magBL) magBL.style.transform = `scaleY(-1) translate(${-moveY*0.3}px, ${moveY}px) scale(${scaleVal})`;
+            if (magBR) magBR.style.transform = `scale(-1, -1) translate(${-moveY*0.3}px, ${moveY}px) scale(${scaleVal})`;
+        });
     </script>
 
 </body>
