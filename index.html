@@ -28,14 +28,35 @@
       padding: 20px 10px;
     }
 
+    /* Cadru fix cu magnolii peste pagina */
+    .magnolia-frame {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none; /* Permite click prin rama la butoane */
+      z-index: 99;
+      background-image: url('1786522162760.png');
+      background-size: 100% 100%;
+      background-position: center;
+      background-repeat: no-repeat;
+      transition: transform 0.1s ease-out;
+      transform: scale(1);
+      opacity: 0.9;
+    }
+
     /* Outer Container cu rama aurie dublă */
     .card-container {
       max-width: 440px;
-      margin: 0 auto;
-      background-color: #ffffff;
+      margin: 20px auto;
+      background-color: rgba(255, 255, 255, 0.92);
       border: 1px solid #d4c391;
       padding: 6px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      position: relative;
+      z-index: 1;
+      backdrop-filter: blur(2px);
     }
 
     .card-inner {
@@ -45,7 +66,7 @@
       position: relative;
     }
 
-    /* Inelul auriu cu diamant - mai mare și mai detaliat */
+    /* Inelul auriu cu diamant */
     .ring-icon {
       width: 70px;
       height: 70px;
@@ -227,12 +248,20 @@
       margin-bottom: 15px;
     }
 
-    .btn-waze {
+    .map-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .btn-map {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 8px;
-      background: #1c1c1c;
+      width: 100%;
+      max-width: 240px;
       color: #ffffff;
       text-decoration: none;
       padding: 10px 20px;
@@ -242,6 +271,16 @@
       letter-spacing: 1.5px;
       text-transform: uppercase;
       box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+      position: relative;
+      z-index: 100;
+    }
+
+    .btn-waze {
+      background: #1c1c1c;
+    }
+
+    .btn-gmaps {
+      background: #4285f4;
     }
 
     /* Formular Confirmare */
@@ -291,6 +330,8 @@
       outline: none;
       margin-bottom: 20px;
       text-align: center;
+      position: relative;
+      z-index: 100;
     }
 
     .btn-whatsapp {
@@ -308,6 +349,8 @@
       border: none;
       box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
       cursor: pointer;
+      position: relative;
+      z-index: 100;
     }
 
     .deadline-ro {
@@ -329,28 +372,26 @@
 </head>
 <body>
 
+  <!-- Elementul Rama Magnolii -->
+  <div class="magnolia-frame" id="magnoliaFrame"></div>
+
   <div class="card-container">
     <div class="card-inner">
       
       <!-- Inel Auriu SVG cu Diamant -->
       <svg class="ring-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- Coroana inelului (Banda aurie) -->
         <circle cx="50" cy="62" r="28" stroke="url(#goldGradient)" stroke-width="4.5"/>
         <circle cx="50" cy="62" r="25.5" stroke="#fff" stroke-width="0.8" opacity="0.6"/>
         
-        <!-- Ghearele de prindere ale diamantului -->
         <path d="M42 36L44 31M58 36L56 31" stroke="#c09d52" stroke-width="2" stroke-linecap="round"/>
         
-        <!-- Diamantul -->
         <path d="M50 16L62 27L50 38L38 27L50 16Z" fill="url(#diamondGradient)" stroke="#b0c4de" stroke-width="1"/>
         <path d="M50 16L44 27H56L50 16Z" fill="#ffffff" opacity="0.7"/>
         <path d="M38 27L50 38L44 27H38Z" fill="#b0c4de" opacity="0.5"/>
         <path d="M62 27L50 38L56 27H62Z" fill="#87cefa" opacity="0.5"/>
 
-        <!-- Străluciri de diamant (Glints) -->
         <path d="M50 10V14M50 40V44M34 27H30M70 27H66" stroke="#c09d52" stroke-width="1.5" stroke-linecap="round"/>
 
-        <!-- Gradienti CSS interni -->
         <defs>
           <linearGradient id="goldGradient" x1="20" y1="34" x2="80" y2="90" gradientUnits="userSpaceOnUse">
             <stop offset="0%" stop-color="#e6ca65"/>
@@ -423,10 +464,16 @@
         <div class="loc-address">Str. 31A DN4 - Șos. Olteniței, Popești-Leordeni, Jud. Ilfov</div>
         <div class="loc-time">Ora / Horário: 14:00</div>
         
-        <a href="https://waze.com/ul?q=Starea%20Civila%20Popesti%20Leordeni" target="_blank" class="btn-waze">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 5.52 4.48 10 10 10s10-4.48 10-10C22 6.48 17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
-          Deschide în Waze
-        </a>
+        <div class="map-buttons">
+          <a href="https://waze.com/ul?q=Starea%20Civila%20Popesti%20Leordeni" target="_blank" class="btn-map btn-waze">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 5.52 4.48 10 10 10s10-4.48 10-10C22 6.48 17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
+            Deschide în Waze
+          </a>
+          <a href="https://www.google.com/maps/search/?api=1&query=Starea+Civila+Popesti+Leordeni" target="_blank" class="btn-map btn-gmaps">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            Google Maps
+          </a>
+        </div>
       </div>
 
       <!-- Locație 2: Petrecerea -->
@@ -436,10 +483,16 @@
         <div class="loc-address">Șoseaua de Centură 50, Cosmopolis Plaza</div>
         <div class="loc-time">Ora / Horário: 17:00</div>
         
-        <a href="https://waze.com/ul?q=Kapari%20Restaurant%20Cosmopolis" target="_blank" class="btn-waze">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 5.52 4.48 10 10 10s10-4.48 10-10C22 6.48 17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
-          Deschide în Waze
-        </a>
+        <div class="map-buttons">
+          <a href="https://waze.com/ul?q=Kapari%20Restaurant%20Cosmopolis" target="_blank" class="btn-map btn-waze">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 5.52 4.48 10 10 10s10-4.48 10-10C22 6.48 17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
+            Deschide în Waze
+          </a>
+          <a href="https://www.google.com/maps/search/?api=1&query=Kapari+Restaurant+Cosmopolis" target="_blank" class="btn-map btn-gmaps">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            Google Maps
+          </a>
+        </div>
       </div>
 
       <!-- Confirmare WhatsApp -->
@@ -465,6 +518,14 @@
   </div>
 
   <script>
+    // Animatie la Scroll pentru Rama cu Magnolii
+    window.addEventListener('scroll', function() {
+      const scrollY = window.scrollY;
+      const frame = document.getElementById('magnoliaFrame');
+      const scaleValue = 1 + Math.min(scrollY / 1000, 0.25);
+      frame.style.transform = `scale(${scaleValue})`;
+    });
+
     // Countdown Timer logic
     const targetDate = new Date('August 25, 2026 14:00:00').getTime();
 
@@ -488,7 +549,7 @@
     setInterval(updateTimer, 1000);
     updateTimer();
 
-    // WhatsApp logic cu numărul tău
+    // WhatsApp logic
     function sendWhatsApp() {
       const count = document.getElementById('personCount').value;
       const phone = "40767237282";
