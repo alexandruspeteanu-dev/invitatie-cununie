@@ -20,64 +20,53 @@
       width: 100%;
       min-height: 100vh;
       background-color: #f2f0eb;
+      /* Rama cu flori este fundal fix, încadrată perfect pe ecran */
+      background-image: url('1786522162760.png');
+      background-size: 100% 100%;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
       font-family: 'Montserrat', sans-serif;
       color: #3a322b;
       overflow-x: hidden;
       overflow-y: auto !important;
       -webkit-overflow-scrolling: touch;
-      padding: 20px 10px;
+      padding: 25px 12px;
     }
 
-    /* Cadru fix cu magnolii PESTE pagina, dar cu zoom mare ca sa fie doar pe margini */
-    .magnolia-frame {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      pointer-events: none; /* Permite atins/click prin rama */
-      z-index: 99; /* Sta peste tot pentru efectul de încadrare */
-      background-image: url('1786522162760.png');
-      background-size: 100% 100%;
-      background-position: center;
-      background-repeat: no-repeat;
-      transition: transform 0.1s ease-out;
-      transform: scale(1.75); /* Zoom initial mare ca florile sa fie impinse pe margini */
-      transform-origin: center center;
-    }
-
-    /* Outer Container cu rama aurie dublă */
+    /* Cardul alb cu text - calibrat să lase loc florilor de pe margini */
     .card-container {
-      max-width: 420px;
-      margin: 20px auto;
-      background-color: rgba(255, 255, 255, 0.90); /* Transparenta fina pentru lizibilitate maxima */
-      backdrop-filter: blur(4px);
-      -webkit-backdrop-filter: blur(4px);
+      width: 88%;
+      max-width: 380px;
+      margin: 10px auto;
+      background-color: rgba(255, 255, 255, 0.92); /* Fundal alb curat, ușor translucid */
+      backdrop-filter: blur(3px);
+      -webkit-backdrop-filter: blur(3px);
       border: 1px solid #d4c391;
-      padding: 6px;
-      box-shadow: 0 4px 25px rgba(0,0,0,0.12);
+      padding: 5px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.15);
       position: relative;
       z-index: 10;
     }
 
     .card-inner {
       border: 1px solid #d4c391;
-      padding: 30px 18px;
+      padding: 25px 15px;
       text-align: center;
       position: relative;
     }
 
     /* Inelul auriu cu diamant */
     .ring-icon {
-      width: 70px;
-      height: 70px;
-      margin: 0 auto 10px auto;
+      width: 65px;
+      height: 65px;
+      margin: 0 auto 8px auto;
       filter: drop-shadow(0px 2px 4px rgba(192, 157, 82, 0.3));
     }
 
     .subtitle-main {
       color: #a37d2c;
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       letter-spacing: 2px;
       font-weight: 700;
       text-transform: uppercase;
@@ -85,17 +74,17 @@
 
     .subtitle-sub {
       color: #8f7253;
-      font-size: 0.7rem;
+      font-size: 0.65rem;
       letter-spacing: 1.5px;
       font-style: italic;
       text-transform: uppercase;
       margin-top: 2px;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
     }
 
     .names {
       font-family: 'Great Vibes', cursive;
-      font-size: 3.8rem;
+      font-size: 3.5rem;
       color: #803a45;
       line-height: 1.1;
       font-weight: bold;
@@ -103,7 +92,7 @@
 
     .names .and {
       font-family: 'Great Vibes', cursive;
-      font-size: 2.2rem;
+      font-size: 2rem;
       display: block;
       margin: -5px 0;
     }
@@ -111,24 +100,24 @@
     .quote-ro {
       font-family: 'Cormorant Garamond', serif;
       font-style: italic;
-      font-size: 1.25rem;
+      font-size: 1.2rem;
       font-weight: 600;
       color: #2b231d;
-      line-height: 1.4;
-      margin-top: 25px;
-      padding: 0 10px;
+      line-height: 1.35;
+      margin-top: 20px;
+      padding: 0 5px;
     }
 
     .quote-pt {
       font-family: 'Cormorant Garamond', serif;
       font-style: italic;
-      font-size: 1.05rem;
+      font-size: 1rem;
       font-weight: 600;
       color: #594d42;
-      line-height: 1.4;
-      margin-top: 15px;
-      margin-bottom: 25px;
-      padding: 0 10px;
+      line-height: 1.35;
+      margin-top: 12px;
+      margin-bottom: 20px;
+      padding: 0 5px;
     }
 
     /* Blocul cu Data */
@@ -136,19 +125,19 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 15px;
-      margin: 25px 0;
+      gap: 10px;
+      margin: 20px 0;
     }
 
     .date-col {
       flex: 1;
       border-top: 1.5px solid #a37d2c;
       border-bottom: 1.5px solid #a37d2c;
-      padding: 6px 0;
+      padding: 5px 0;
     }
 
     .date-col .day-ro {
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       font-weight: 700;
       color: #a37d2c;
       text-transform: uppercase;
@@ -156,7 +145,7 @@
     }
 
     .date-col .day-pt {
-      font-size: 0.65rem;
+      font-size: 0.6rem;
       font-weight: 600;
       color: #a37d2c;
       text-transform: uppercase;
@@ -164,7 +153,7 @@
     }
 
     .date-number {
-      font-size: 2.8rem;
+      font-size: 2.5rem;
       font-weight: 700;
       color: #803a45;
       line-height: 1;
@@ -172,36 +161,36 @@
 
     /* Temporizator */
     .timer-title {
-      font-size: 0.7rem;
-      letter-spacing: 2px;
+      font-size: 0.68rem;
+      letter-spacing: 1.5px;
       color: #a37d2c;
       font-weight: 700;
       text-transform: uppercase;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
     .timer-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 8px;
-      margin-bottom: 30px;
+      gap: 6px;
+      margin-bottom: 25px;
     }
 
     .timer-box {
       border: 1px solid #d4c391;
       border-radius: 4px;
-      padding: 8px 4px;
+      padding: 6px 2px;
       background: #faf8f5;
     }
 
     .timer-val {
-      font-size: 1.4rem;
+      font-size: 1.25rem;
       font-weight: 700;
       color: #803a45;
     }
 
     .timer-label {
-      font-size: 0.55rem;
+      font-size: 0.5rem;
       color: #6e5f4d;
       font-weight: 600;
       text-transform: uppercase;
@@ -212,14 +201,14 @@
     .location-card {
       border: 1px solid #d4c391;
       border-radius: 6px;
-      padding: 20px 15px;
-      margin-bottom: 20px;
+      padding: 16px 10px;
+      margin-bottom: 18px;
       background: #ffffff;
     }
 
     .loc-title {
-      font-size: 0.75rem;
-      letter-spacing: 1.5px;
+      font-size: 0.7rem;
+      letter-spacing: 1px;
       color: #a37d2c;
       font-weight: 700;
       text-transform: uppercase;
@@ -232,33 +221,33 @@
 
     .loc-name {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.4rem;
+      font-size: 1.3rem;
       font-weight: 700;
       color: #1a1512;
-      margin: 8px 0 4px 0;
+      margin: 6px 0 4px 0;
     }
 
     .loc-address {
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       color: #4a4037;
       font-weight: 500;
       line-height: 1.3;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
     .loc-time {
       font-family: 'Cormorant Garamond', serif;
       font-style: italic;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       font-weight: 600;
       color: #803a45;
-      margin-bottom: 15px;
+      margin-bottom: 12px;
     }
 
     .map-buttons {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 8px;
       align-items: center;
     }
 
@@ -266,20 +255,18 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
+      gap: 6px;
       width: 100%;
-      max-width: 240px;
+      max-width: 220px;
       color: #ffffff;
       text-decoration: none;
-      padding: 10px 20px;
+      padding: 9px 15px;
       border-radius: 20px;
-      font-size: 0.7rem;
+      font-size: 0.65rem;
       font-weight: 700;
-      letter-spacing: 1.5px;
+      letter-spacing: 1px;
       text-transform: uppercase;
-      box-shadow: 0 3px 6px rgba(0,0,0,0.15);
-      position: relative;
-      z-index: 100;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.12);
     }
 
     .btn-waze {
@@ -294,13 +281,13 @@
     .confirm-card {
       border: 1px solid #d4c391;
       border-radius: 6px;
-      padding: 22px 15px;
+      padding: 18px 10px;
       background: #faf8f5;
     }
 
     .confirm-title {
-      font-size: 0.8rem;
-      letter-spacing: 1.5px;
+      font-size: 0.75rem;
+      letter-spacing: 1px;
       color: #a37d2c;
       font-weight: 700;
       text-transform: uppercase;
@@ -309,38 +296,36 @@
     .confirm-sub {
       font-family: 'Cormorant Garamond', serif;
       font-style: italic;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       font-weight: 600;
       color: #803a45;
       margin-top: 4px;
-      margin-bottom: 15px;
+      margin-bottom: 12px;
     }
 
     .confirm-label {
-      font-size: 0.7rem;
+      font-size: 0.65rem;
       font-weight: 700;
       letter-spacing: 1px;
       color: #3a322b;
       text-transform: uppercase;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
       display: block;
     }
 
     .select-persons {
       width: 100%;
-      padding: 12px;
+      padding: 10px;
       border: 1px solid #d4c391;
       border-radius: 4px;
       background: #ffffff;
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       font-weight: 600;
       color: #1a1512;
       outline: none;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
       text-align: center;
-      position: relative;
-      z-index: 100;
     }
 
     .btn-whatsapp {
@@ -349,32 +334,30 @@
       background: #25d366;
       color: #ffffff;
       text-decoration: none;
-      padding: 14px;
+      padding: 12px;
       border-radius: 6px;
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       font-weight: 700;
-      letter-spacing: 1.5px;
+      letter-spacing: 1px;
       text-transform: uppercase;
       border: none;
-      box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+      box-shadow: 0 3px 8px rgba(37, 211, 102, 0.3);
       cursor: pointer;
-      position: relative;
-      z-index: 100;
     }
 
     .deadline-ro {
       font-family: 'Cormorant Garamond', serif;
       font-style: italic;
-      font-size: 1rem;
+      font-size: 0.95rem;
       font-weight: 600;
       color: #3a322b;
-      margin-top: 15px;
+      margin-top: 12px;
     }
 
     .deadline-pt {
       font-family: 'Cormorant Garamond', serif;
       font-style: italic;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       font-weight: 600;
       color: #6e5f4d;
       margin-top: 2px;
@@ -382,9 +365,6 @@
   </style>
 </head>
 <body>
-
-  <!-- Elementul Rama Magnolii peste continut -->
-  <div class="magnolia-frame" id="magnoliaFrame"></div>
 
   <div class="card-container">
     <div class="card-inner">
@@ -477,11 +457,11 @@
         
         <div class="map-buttons">
           <a href="https://waze.com/ul?q=Starea%20Civila%20Popesti%20Leordeni" target="_blank" class="btn-map btn-waze">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 5.52 4.48 10 10 10s10-4.48 10-10C22 6.48 17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 5.52 4.48 10 10 10s10-4.48 10-10C22 6.48 17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
             Deschide în Waze
           </a>
           <a href="https://www.google.com/maps/search/?api=1&query=Starea+Civila+Popesti+Leordeni" target="_blank" class="btn-map btn-gmaps">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
             Google Maps
           </a>
         </div>
@@ -496,11 +476,11 @@
         
         <div class="map-buttons">
           <a href="https://waze.com/ul?q=Kapari%20Restaurant%20Cosmopolis" target="_blank" class="btn-map btn-waze">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 5.52 4.48 10 10 10s10-4.48 10-10C22 6.48 17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 5.52 4.48 10 10 10s10-4.48 10-10C22 6.48 17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
             Deschide în Waze
           </a>
           <a href="https://www.google.com/maps/search/?api=1&query=Kapari+Restaurant+Cosmopolis" target="_blank" class="btn-map btn-gmaps">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
             Google Maps
           </a>
         </div>
@@ -529,14 +509,6 @@
   </div>
 
   <script>
-    // Zoom dynamic la Scroll: porneste de la scale(1.75) si ajunge la 2.1
-    window.addEventListener('scroll', function() {
-      const scrollY = window.scrollY;
-      const frame = document.getElementById('magnoliaFrame');
-      const scaleValue = 1.75 + Math.min(scrollY / 800, 0.35);
-      frame.style.transform = `scale(${scaleValue})`;
-    });
-
     // Countdown Timer logic
     const targetDate = new Date('August 25, 2026 14:00:00').getTime();
 
