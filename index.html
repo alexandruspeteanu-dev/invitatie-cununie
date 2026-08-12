@@ -28,34 +28,36 @@
       padding: 20px 10px;
     }
 
-    /* Cadru fix cu magnolii peste pagina */
+    /* Cadru fix cu magnolii PESTE pagina, dar cu zoom mare ca sa fie doar pe margini */
     .magnolia-frame {
       position: fixed;
-      top: -5%;
-      left: -5%;
-      width: 110vw;
-      height: 110vh;
-      pointer-events: none; /* Permite click prin rama la butoane */
-      z-index: 1; /* Pozitionat sub cardul de text */
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none; /* Permite atins/click prin rama */
+      z-index: 99; /* Sta peste tot pentru efectul de încadrare */
       background-image: url('1786522162760.png');
-      background-size: cover;
+      background-size: 100% 100%;
       background-position: center;
       background-repeat: no-repeat;
       transition: transform 0.1s ease-out;
-      transform: scale(1.2); /* Cadru mai mare initial, impins spre margini */
-      opacity: 0.95;
+      transform: scale(1.75); /* Zoom initial mare ca florile sa fie impinse pe margini */
+      transform-origin: center center;
     }
 
     /* Outer Container cu rama aurie dublă */
     .card-container {
-      max-width: 440px;
+      max-width: 420px;
       margin: 20px auto;
-      background-color: #ffffff;
+      background-color: rgba(255, 255, 255, 0.90); /* Transparenta fina pentru lizibilitate maxima */
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
       border: 1px solid #d4c391;
       padding: 6px;
-      box-shadow: 0 4px 25px rgba(0,0,0,0.15);
+      box-shadow: 0 4px 25px rgba(0,0,0,0.12);
       position: relative;
-      z-index: 10; /* Cardul stă PESTE rama florală pentru lizibilitate maximă */
+      z-index: 10;
     }
 
     .card-inner {
@@ -381,7 +383,7 @@
 </head>
 <body>
 
-  <!-- Elementul Rama Magnolii -->
+  <!-- Elementul Rama Magnolii peste continut -->
   <div class="magnolia-frame" id="magnoliaFrame"></div>
 
   <div class="card-container">
@@ -527,11 +529,11 @@
   </div>
 
   <script>
-    // Animatie la Scroll pentru Rama cu Magnolii (porneste de la 1.25 si se extinde pana la 1.5)
+    // Zoom dynamic la Scroll: porneste de la scale(1.75) si ajunge la 2.1
     window.addEventListener('scroll', function() {
       const scrollY = window.scrollY;
       const frame = document.getElementById('magnoliaFrame');
-      const scaleValue = 1.2 + Math.min(scrollY / 800, 0.3);
+      const scaleValue = 1.75 + Math.min(scrollY / 800, 0.35);
       frame.style.transform = `scale(${scaleValue})`;
     });
 
