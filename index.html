@@ -27,15 +27,15 @@
       -webkit-overflow-scrolling: touch;
     }
 
-    /* Cadru fix peste ecran cu imaginea nouă cu magnolii */
+    /* Cadru fix în fundal (z-index: 1) cu imaginea de magnolii */
     .magnolia-frame {
       position: fixed;
       top: 0;
       left: 0;
       width: 100vw;
       height: 100vh;
-      pointer-events: none; /* Permite scroll si click-uri prin rama */
-      z-index: 99; /* Sta PESTE tot, incadrand frumos cardul */
+      pointer-events: none; /* Permite scroll si interacțiune prin rama */
+      z-index: 1; /* Trimis în fundal */
       background-image: url('1000041442.png');
       background-size: 100% 100%;
       background-position: center;
@@ -45,34 +45,34 @@
       transform-origin: center center;
     }
 
-    /* Scroll wrapper */
+    /* Scroll wrapper adus în față (z-index: 2) */
     .content-wrapper {
       position: relative;
-      z-index: 10;
-      padding: 40px 15px 60px 15px;
+      z-index: 2; /* Peste rama cu flori */
+      padding: 35px 15px 60px 15px;
       display: flex;
       justify-content: center;
     }
 
-    /* Cardul principal cu text - îngustat ca să intre fix în deschiderea florilor */
+    /* Cardul principal cu text - încadrat între ramurile de flori */
     .card-container {
       width: 100%;
-      max-width: 330px;
+      max-width: 320px;
       margin: 0 auto;
-      background-color: rgba(255, 255, 255, 0.93);
-      backdrop-filter: blur(4px);
-      -webkit-backdrop-filter: blur(4px);
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
       border: 1px solid #d4c391;
       padding: 5px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-      border-radius: 4px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+      border-radius: 8px;
     }
 
     .card-inner {
       border: 1px solid #d4c391;
       padding: 22px 12px;
       text-align: center;
-      border-radius: 2px;
+      border-radius: 4px;
     }
 
     /* Inelul auriu cu diamant */
@@ -383,10 +383,10 @@
 </head>
 <body>
 
-  <!-- Rama fixă cu flori -->
+  <!-- Rama fixă în fundal cu florile de magnolie -->
   <div class="magnolia-frame" id="magnoliaFrame"></div>
 
-  <!-- Continutul paginii care face scroll prin rama -->
+  <!-- Conținutul care plutește deasupra ramei -->
   <div class="content-wrapper">
     <div class="card-container">
       <div class="card-inner">
@@ -532,12 +532,12 @@
   </div>
 
   <script>
-    // Efectul de mărire (zoom-in fin) pentru rama de magnolii la scroll
+    // Zoom ușor și fin pe rama de pe fundal în timp ce dai scroll
     window.addEventListener('scroll', function() {
       const scrollY = window.scrollY;
       const frame = document.getElementById('magnoliaFrame');
-      // Scale-ul pornește de la 1.0 și crește ușor până la maxim 1.25 când dai scroll
-      const scaleValue = 1.0 + Math.min(scrollY / 1000, 0.25);
+      // Scale crește fin de la 1.0 la un maxim de 1.2 la scroll
+      const scaleValue = 1.0 + Math.min(scrollY / 1200, 0.20);
       frame.style.transform = `scale(${scaleValue})`;
     });
 
