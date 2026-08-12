@@ -21,7 +21,7 @@
       min-height: 100vh;
       background-color: #f2f0eb;
       font-family: 'Montserrat', sans-serif;
-      color: #5a5047;
+      color: #3a322b;
       overflow-x: hidden;
       overflow-y: auto !important;
       -webkit-overflow-scrolling: touch;
@@ -31,32 +31,31 @@
     /* Cadru fix cu magnolii peste pagina */
     .magnolia-frame {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
+      top: -5%;
+      left: -5%;
+      width: 110vw;
+      height: 110vh;
       pointer-events: none; /* Permite click prin rama la butoane */
-      z-index: 99;
+      z-index: 1; /* Pozitionat sub cardul de text */
       background-image: url('1786522162760.png');
-      background-size: 100% 100%;
+      background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
       transition: transform 0.1s ease-out;
-      transform: scale(1);
-      opacity: 0.9;
+      transform: scale(1.2); /* Cadru mai mare initial, impins spre margini */
+      opacity: 0.95;
     }
 
     /* Outer Container cu rama aurie dublă */
     .card-container {
       max-width: 440px;
       margin: 20px auto;
-      background-color: rgba(255, 255, 255, 0.92);
+      background-color: #ffffff;
       border: 1px solid #d4c391;
       padding: 6px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      box-shadow: 0 4px 25px rgba(0,0,0,0.15);
       position: relative;
-      z-index: 1;
-      backdrop-filter: blur(2px);
+      z-index: 10; /* Cardul stă PESTE rama florală pentru lizibilitate maximă */
     }
 
     .card-inner {
@@ -75,7 +74,7 @@
     }
 
     .subtitle-main {
-      color: #c09d52;
+      color: #a37d2c;
       font-size: 0.75rem;
       letter-spacing: 2px;
       font-weight: 700;
@@ -83,7 +82,7 @@
     }
 
     .subtitle-sub {
-      color: #b0957a;
+      color: #8f7253;
       font-size: 0.7rem;
       letter-spacing: 1.5px;
       font-style: italic;
@@ -95,9 +94,9 @@
     .names {
       font-family: 'Great Vibes', cursive;
       font-size: 3.8rem;
-      color: #9e636b;
+      color: #803a45;
       line-height: 1.1;
-      font-weight: normal;
+      font-weight: bold;
     }
 
     .names .and {
@@ -111,7 +110,8 @@
       font-family: 'Cormorant Garamond', serif;
       font-style: italic;
       font-size: 1.25rem;
-      color: #4a4238;
+      font-weight: 600;
+      color: #2b231d;
       line-height: 1.4;
       margin-top: 25px;
       padding: 0 10px;
@@ -121,7 +121,8 @@
       font-family: 'Cormorant Garamond', serif;
       font-style: italic;
       font-size: 1.05rem;
-      color: #7a6e62;
+      font-weight: 600;
+      color: #594d42;
       line-height: 1.4;
       margin-top: 15px;
       margin-bottom: 25px;
@@ -139,30 +140,31 @@
 
     .date-col {
       flex: 1;
-      border-top: 1px solid #c09d52;
-      border-bottom: 1px solid #c09d52;
+      border-top: 1.5px solid #a37d2c;
+      border-bottom: 1.5px solid #a37d2c;
       padding: 6px 0;
     }
 
     .date-col .day-ro {
       font-size: 0.75rem;
       font-weight: 700;
-      color: #c09d52;
+      color: #a37d2c;
       text-transform: uppercase;
       letter-spacing: 1px;
     }
 
     .date-col .day-pt {
       font-size: 0.65rem;
-      color: #c09d52;
+      font-weight: 600;
+      color: #a37d2c;
       text-transform: uppercase;
       letter-spacing: 1px;
     }
 
     .date-number {
       font-size: 2.8rem;
-      font-weight: 600;
-      color: #9e636b;
+      font-weight: 700;
+      color: #803a45;
       line-height: 1;
     }
 
@@ -170,7 +172,7 @@
     .timer-title {
       font-size: 0.7rem;
       letter-spacing: 2px;
-      color: #c09d52;
+      color: #a37d2c;
       font-weight: 700;
       text-transform: uppercase;
       margin-bottom: 12px;
@@ -184,7 +186,7 @@
     }
 
     .timer-box {
-      border: 1px solid #e2d7be;
+      border: 1px solid #d4c391;
       border-radius: 4px;
       padding: 8px 4px;
       background: #faf8f5;
@@ -193,19 +195,20 @@
     .timer-val {
       font-size: 1.4rem;
       font-weight: 700;
-      color: #9e636b;
+      color: #803a45;
     }
 
     .timer-label {
       font-size: 0.55rem;
-      color: #9a8b78;
+      color: #6e5f4d;
+      font-weight: 600;
       text-transform: uppercase;
       margin-top: 2px;
     }
 
     /* Carduri Locații */
     .location-card {
-      border: 1px solid #e2d7be;
+      border: 1px solid #d4c391;
       border-radius: 6px;
       padding: 20px 15px;
       margin-bottom: 20px;
@@ -215,27 +218,28 @@
     .loc-title {
       font-size: 0.75rem;
       letter-spacing: 1.5px;
-      color: #c09d52;
+      color: #a37d2c;
       font-weight: 700;
       text-transform: uppercase;
     }
 
     .loc-title span {
-      color: #b0957a;
-      font-weight: 400;
+      color: #8f7253;
+      font-weight: 500;
     }
 
     .loc-name {
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.4rem;
       font-weight: 700;
-      color: #2c2520;
+      color: #1a1512;
       margin: 8px 0 4px 0;
     }
 
     .loc-address {
       font-size: 0.8rem;
-      color: #7a6e62;
+      color: #4a4037;
+      font-weight: 500;
       line-height: 1.3;
       margin-bottom: 12px;
     }
@@ -244,7 +248,8 @@
       font-family: 'Cormorant Garamond', serif;
       font-style: italic;
       font-size: 1.1rem;
-      color: #9e636b;
+      font-weight: 600;
+      color: #803a45;
       margin-bottom: 15px;
     }
 
@@ -285,7 +290,7 @@
 
     /* Formular Confirmare */
     .confirm-card {
-      border: 1px solid #e2d7be;
+      border: 1px solid #d4c391;
       border-radius: 6px;
       padding: 22px 15px;
       background: #faf8f5;
@@ -294,7 +299,7 @@
     .confirm-title {
       font-size: 0.8rem;
       letter-spacing: 1.5px;
-      color: #c09d52;
+      color: #a37d2c;
       font-weight: 700;
       text-transform: uppercase;
     }
@@ -303,7 +308,8 @@
       font-family: 'Cormorant Garamond', serif;
       font-style: italic;
       font-size: 0.95rem;
-      color: #9e636b;
+      font-weight: 600;
+      color: #803a45;
       margin-top: 4px;
       margin-bottom: 15px;
     }
@@ -312,7 +318,7 @@
       font-size: 0.7rem;
       font-weight: 700;
       letter-spacing: 1px;
-      color: #4a4238;
+      color: #3a322b;
       text-transform: uppercase;
       margin-bottom: 8px;
       display: block;
@@ -326,7 +332,8 @@
       background: #ffffff;
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.1rem;
-      color: #2c2520;
+      font-weight: 600;
+      color: #1a1512;
       outline: none;
       margin-bottom: 20px;
       text-align: center;
@@ -357,7 +364,8 @@
       font-family: 'Cormorant Garamond', serif;
       font-style: italic;
       font-size: 1rem;
-      color: #5a5047;
+      font-weight: 600;
+      color: #3a322b;
       margin-top: 15px;
     }
 
@@ -365,7 +373,8 @@
       font-family: 'Cormorant Garamond', serif;
       font-style: italic;
       font-size: 0.85rem;
-      color: #8c7e70;
+      font-weight: 600;
+      color: #6e5f4d;
       margin-top: 2px;
     }
   </style>
@@ -518,11 +527,11 @@
   </div>
 
   <script>
-    // Animatie la Scroll pentru Rama cu Magnolii
+    // Animatie la Scroll pentru Rama cu Magnolii (porneste de la 1.25 si se extinde pana la 1.5)
     window.addEventListener('scroll', function() {
       const scrollY = window.scrollY;
       const frame = document.getElementById('magnoliaFrame');
-      const scaleValue = 1 + Math.min(scrollY / 1000, 0.25);
+      const scaleValue = 1.2 + Math.min(scrollY / 800, 0.3);
       frame.style.transform = `scale(${scaleValue})`;
     });
 
