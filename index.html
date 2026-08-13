@@ -34,7 +34,7 @@
       left: 0;
       width: 100vw;
       height: 100vh;
-      pointer-events: none; /* Permite scroll si interacțiune prin rama */
+      pointer-events: none; /* Permite scroll si interacțiune prin ramă */
       z-index: 1; /* Trimis în fundal */
       background-image: url('1000041442.png');
       background-size: 100% 100%;
@@ -85,19 +85,10 @@
 
     .subtitle-main {
       color: #a37d2c;
-      font-size: 0.68rem;
+      font-size: 0.72rem;
       letter-spacing: 2px;
       font-weight: 700;
       text-transform: uppercase;
-    }
-
-    .subtitle-sub {
-      color: #8f7253;
-      font-size: 0.62rem;
-      letter-spacing: 1.5px;
-      font-style: italic;
-      text-transform: uppercase;
-      margin-top: 2px;
       margin-bottom: 12px;
     }
 
@@ -124,16 +115,6 @@
       color: #2b231d;
       line-height: 1.35;
       margin-top: 16px;
-    }
-
-    .quote-pt {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: #594d42;
-      line-height: 1.35;
-      margin-top: 10px;
       margin-bottom: 18px;
     }
 
@@ -154,16 +135,8 @@
     }
 
     .date-col .day-ro {
-      font-size: 0.65rem;
+      font-size: 0.68rem;
       font-weight: 700;
-      color: #a37d2c;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    .date-col .day-pt {
-      font-size: 0.58rem;
-      font-weight: 600;
       color: #a37d2c;
       text-transform: uppercase;
       letter-spacing: 1px;
@@ -207,7 +180,7 @@
     }
 
     .timer-label {
-      font-size: 0.48rem;
+      font-size: 0.5rem;
       color: #6e5f4d;
       font-weight: 600;
       text-transform: uppercase;
@@ -224,16 +197,11 @@
     }
 
     .loc-title {
-      font-size: 0.68rem;
+      font-size: 0.7rem;
       letter-spacing: 1px;
       color: #a37d2c;
       font-weight: 700;
       text-transform: uppercase;
-    }
-
-    .loc-title span {
-      color: #8f7253;
-      font-weight: 500;
     }
 
     .loc-name {
@@ -303,7 +271,7 @@
     }
 
     .confirm-title {
-      font-size: 0.72rem;
+      font-size: 0.75rem;
       letter-spacing: 1px;
       color: #a37d2c;
       font-weight: 700;
@@ -313,7 +281,7 @@
     .confirm-sub {
       font-family: 'Cormorant Garamond', serif;
       font-style: italic;
-      font-size: 0.88rem;
+      font-size: 0.9rem;
       font-weight: 600;
       color: #803a45;
       margin-top: 3px;
@@ -365,19 +333,10 @@
     .deadline-ro {
       font-family: 'Cormorant Garamond', serif;
       font-style: italic;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       font-weight: 600;
       color: #3a322b;
       margin-top: 10px;
-    }
-
-    .deadline-pt {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-size: 0.78rem;
-      font-weight: 600;
-      color: #6e5f4d;
-      margin-top: 2px;
     }
   </style>
 </head>
@@ -420,7 +379,6 @@
         </svg>
 
         <div class="subtitle-main">Sărbătorim Dragostea</div>
-        <div class="subtitle-sub">Celebrando o Amor</div>
 
         <h1 class="names">
           Amanda
@@ -431,34 +389,28 @@
         <p class="quote-ro">
           Două inimi, o singură poveste! Vă așteptăm cu bucurie și emoție să ne fiți alături în momentul în care ne vom uni destinele.
         </p>
-        
-        <p class="quote-pt">
-          Dois corações, uma só história! Esperamos por você com muita alegria e emoção para celebrar este momento em que uniremos nossos destinos.
-        </p>
 
         <!-- Data -->
         <div class="date-row">
           <div class="date-col">
             <div class="day-ro">Marți</div>
-            <div class="day-pt">Terça-Feira</div>
           </div>
           <div class="date-number">25</div>
           <div class="date-col">
             <div class="day-ro">August 2026</div>
-            <div class="day-pt">Agosto de 2026</div>
           </div>
         </div>
 
         <!-- Temporizator -->
-        <div class="timer-title">A mai rămas / Faltam:</div>
+        <div class="timer-title">A mai rămas:</div>
         <div class="timer-grid">
           <div class="timer-box">
             <div class="timer-val" id="days">00</div>
-            <div class="timer-label">Zile / Dias</div>
+            <div class="timer-label">Zile</div>
           </div>
           <div class="timer-box">
             <div class="timer-val" id="hours">00</div>
-            <div class="timer-label">Ore / Horas</div>
+            <div class="timer-label">Ore</div>
           </div>
           <div class="timer-box">
             <div class="timer-val" id="minutes">00</div>
@@ -466,16 +418,16 @@
           </div>
           <div class="timer-box">
             <div class="timer-val" id="seconds">00</div>
-            <div class="timer-label">Sec / Seg</div>
+            <div class="timer-label">Sec</div>
           </div>
         </div>
 
         <!-- Locație 1: Cununia Civilă -->
         <div class="location-card">
-          <div class="loc-title">🏛️ Cununia Civilă / <span>Casamento Civil</span></div>
+          <div class="loc-title">🏛️ Cununia Civilă</div>
           <div class="loc-name">Starea Civilă Popești-Leordeni</div>
           <div class="loc-address">Str. 31A DN4 - Șos. Olteniței, Popești-Leordeni, Jud. Ilfov</div>
-          <div class="loc-time">Ora / Horário: 14:00</div>
+          <div class="loc-time">Ora: 14:00</div>
           
           <div class="map-buttons">
             <a href="https://waze.com/ul?q=Starea%20Civila%20Popesti%20Leordeni" target="_blank" class="btn-map btn-waze">
@@ -491,10 +443,10 @@
 
         <!-- Locație 2: Petrecerea -->
         <div class="location-card">
-          <div class="loc-title">🥂 Petrecerea / <span>Recepção</span></div>
+          <div class="loc-title">🥂 Petrecerea</div>
           <div class="loc-name">Kapari Restaurant Cosmopolis</div>
           <div class="loc-address">Șoseaua de Centură 50, Cosmopolis Plaza</div>
-          <div class="loc-time">Ora / Horário: 17:00</div>
+          <div class="loc-time">Ora: 17:00</div>
           
           <div class="map-buttons">
             <a href="https://waze.com/ul?q=Kapari%20Restaurant%20Cosmopolis" target="_blank" class="btn-map btn-waze">
@@ -510,21 +462,20 @@
 
         <!-- Confirmare WhatsApp -->
         <div class="confirm-card">
-          <div class="confirm-title">Confirmare / Confirmação</div>
+          <div class="confirm-title">Confirmare</div>
           <div class="confirm-sub">Selectați numărul de persoane care vor participa:</div>
 
-          <label class="confirm-label">Număr persoane / Número de pessoas:</label>
+          <label class="confirm-label">Număr persoane:</label>
           <select class="select-persons" id="personCount">
-            <option value="1 persoană / pessoa">1 persoană / pessoa</option>
-            <option value="2 persoane / pessoas" selected>2 persoane / pessoas</option>
-            <option value="3 persoane / pessoas">3 persoane / pessoas</option>
-            <option value="4 persoane / pessoas">4 persoane / pessoas</option>
+            <option value="1 persoană">1 persoană</option>
+            <option value="2 persoane" selected>2 persoane</option>
+            <option value="3 persoane">3 persoane</option>
+            <option value="4 persoane">4 persoane</option>
           </select>
 
           <button class="btn-whatsapp" onclick="sendWhatsApp()">Confirmă pe WhatsApp</button>
 
           <div class="deadline-ro">Vă rugăm să confirmați până la data de 20 August</div>
-          <div class="deadline-pt">Favor confirmar até o dia 20 de Agosto</div>
         </div>
 
       </div>
@@ -532,11 +483,10 @@
   </div>
 
   <script>
-    // Zoom ușor și fin pe rama de pe fundal în timp ce dai scroll
+    // Zoom ușor pe rama din fundal în timpul scroll-ului
     window.addEventListener('scroll', function() {
       const scrollY = window.scrollY;
       const frame = document.getElementById('magnoliaFrame');
-      // Scale crește fin de la 1.0 la un maxim de 1.2 la scroll
       const scaleValue = 1.0 + Math.min(scrollY / 1200, 0.20);
       frame.style.transform = `scale(${scaleValue})`;
     });
